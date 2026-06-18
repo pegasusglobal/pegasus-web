@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pegasus Global Trade — Colombian Specialty Coffee Export</title>
+  <meta name="description" content="Direct-trade specialty coffee from Colombia's finest micro-regions. Sourced with integrity, exported with care to the United States." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #001B4D;
+      --navy-deep: #00102e;
+      --gold: #C8941A;
+      --gold-light: #F4B544;
+      --white: #ffffff;
+      --off-white: #F7F4F0;
+      --cream: #EFE9E0;
+      --text: #15130f;
+      --text-muted: #5a564f;
+      --text-faint: #8a857c;
+      --border: #E3DDD3;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 400;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 56px;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .nav-brand .icon { height: 52px; width: auto; }
+    .nav-brand .wordmark { height: 40px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-lang {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-faint);
+      letter-spacing: 0.05em;
+    }
+    .nav-lang .active { color: var(--text); }
+
+    .nav-cta {
+      font-size: 14px !important;
+      font-weight: 600;
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 11px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: #002a7a; color: var(--white) !important; transform: translateY(-1px); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 120px 56px; position: relative; }
+
+    .wrap { max-width: 1240px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px; height: 1.5px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; color: var(--text); }
+
+    /* ===== HERO ===== */
+    #hero {
+      padding-top: 180px;
+      padding-bottom: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-left { padding-bottom: 120px; }
+
+    h1 {
+      font-size: 66px;
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 44px;
+      font-weight: 400;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 24px; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 34px;
+      border-radius: 36px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #002a7a; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: gap 0.2s;
+    }
+    .btn-ghost:hover { gap: 13px; }
+    .btn-ghost svg { width: 19px; height: 19px; }
+
+    .hero-image {
+      align-self: stretch;
+      background: var(--cream);
+      border-radius: 4px;
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image .ph-label {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+    .hero-image svg { width: 64px; height: 64px; stroke: var(--text-faint); fill: none; stroke-width: 1; opacity: 0.4; }
+
+    /* ===== WHO WE ARE ===== */
+    #about { background: var(--off-white); border-bottom: 1px solid var(--border); }
+
+    .about-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-size: 46px;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+    }
+
+    .about-intro {
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+    }
+    .about-stat {
+      padding-right: 48px;
+      margin-right: 48px;
+      border-right: 1px solid var(--border);
+    }
+    .about-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .about-stat .num {
+      font-family: var(--serif);
+      font-size: 44px;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .about-stat .lbl {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .about-image {
+      margin-top: 8px;
+      width: 100%;
+      height: 420px;
+      background: var(--cream);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-image .ph-label {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+    .about-image svg { width: 56px; height: 56px; stroke: var(--text-faint); fill: none; stroke-width: 1; opacity: 0.4; }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--white); border-bottom: 1px solid var(--border); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .service-card {
+      padding: 40px 34px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .service-ic {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 26px;
+    }
+    .service-ic svg { width: 22px; height: 22px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .service-card h3 { font-size: 23px; margin-bottom: 12px; }
+    .service-card p { font-size: 15px; color: var(--text-muted); line-height: 1.75; font-weight: 400; }
+
+    /* ===== CLIENT (Soldados) ===== */
+    #client { background: var(--off-white); border-bottom: 1px solid var(--border); }
+    .client-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .client-image {
+      height: 440px;
+      background: var(--navy);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .client-image .ph-label {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+    .client-image svg { width: 60px; height: 60px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1; }
+    .client-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,148,26,0.12);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 7px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+    .client-info h2 { font-size: 40px; margin-bottom: 20px; }
+    .client-info p { font-size: 16px; color: var(--text-muted); line-height: 1.8; font-weight: 400; margin-bottom: 16px; }
+    .client-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: gap 0.2s;
+    }
+    .client-link:hover { gap: 12px; }
+    .client-link svg { width: 17px; height: 17px; }
+
+    /* ===== COFFEES ===== */
+    #coffees { background: var(--white); border-bottom: 1px solid var(--border); }
+    .coffees-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+    }
+    .link-arrow {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+    .link-arrow:hover { gap: 12px; }
+
+    .coffee-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    .coffee-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      background: var(--white);
+    }
+    .coffee-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    }
+    .coffee-img {
+      height: 150px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .coffee-img svg { width: 38px; height: 38px; stroke: rgba(200,148,26,0.45); fill: none; stroke-width: 1; }
+    .coffee-img .badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--white);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .coffee-info { padding: 20px 18px; }
+    .coffee-region {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .coffee-name { font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .coffee-notes { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 400; }
+    .coffee-meta {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .coffee-tag {
+      font-size: 10px;
+      background: var(--off-white);
+      color: var(--text-muted);
+      padding: 4px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+    }
+
+    /* ===== PROCESS ===== */
+    #process { background: var(--off-white); border-bottom: 1px solid var(--border); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .process-image {
+      height: 540px;
+      background: var(--cream);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .process-image .ph-label {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+    .process-image svg { width: 60px; height: 60px; stroke: var(--text-faint); fill: none; stroke-width: 1; opacity: 0.4; }
+
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .process-step:first-child { padding-top: 0; }
+    .process-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+    .process-step h3 { font-size: 24px; margin-bottom: 10px; }
+    .process-step p { font-size: 15px; color: var(--text-muted); line-height: 1.75; font-weight: 400; }
+
+    /* ===== TEAM ===== */
+    #team { background: var(--white); border-bottom: 1px solid var(--border); }
+    .team-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .team-card {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.25s;
+    }
+    .team-card:hover { border-color: var(--gold); }
+    .team-photo {
+      width: 96px; height: 96px;
+      border-radius: 6px;
+      background: var(--cream);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-photo span { font-family: var(--serif); font-size: 26px; font-weight: 500; color: var(--gold); }
+    .team-info h3 { font-size: 25px; margin-bottom: 4px; }
+    .team-role {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .team-info p { font-size: 15px; color: var(--text-muted); line-height: 1.8; font-weight: 400; }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--navy-deep); padding: 110px 56px; }
+    .contact-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    #contact .eyebrow { color: var(--gold-light); }
+    #contact .eyebrow::before { background: var(--gold-light); }
+    #contact h2 { color: var(--white); font-size: 48px; }
+    #contact h2 em { font-style: italic; color: var(--gold-light); }
+    .contact-body {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-top: 24px;
+      font-weight: 400;
+    }
+    .contact-actions { display: flex; flex-direction: column; gap: 18px; }
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 12px;
+      padding: 22px 26px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-whatsapp:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); transform: translateY(-2px); }
+    .wa-icon {
+      width: 48px; height: 48px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-icon svg { width: 24px; height: 24px; fill: white; }
+    .btn-whatsapp-text strong { display: block; font-size: 16px; color: var(--white); font-weight: 600; margin-bottom: 3px; }
+    .btn-whatsapp-text span { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 400; }
+    .contact-email {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      padding: 4px 6px;
+    }
+    .contact-email svg { width: 18px; height: 18px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000814;
+      padding: 40px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 14px; }
+    .footer-brand .ic { height: 36px; opacity: 0.9; }
+    .footer-brand span { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 400; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px) {
+      nav { padding: 0 24px; height: 72px; }
+      .nav-links { display: none; }
+      .nav-brand .icon { height: 42px; }
+      .nav-brand .wordmark { height: 30px; }
+      section { padding: 72px 24px; }
+      #hero { padding-top: 120px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-left { padding-bottom: 0; }
+      h1 { font-size: 42px; }
+      h2 { font-size: 34px; }
+      .hero-image { min-height: 320px; }
+      .about-head, .client-grid, .process-grid, .team-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .coffee-grid { grid-template-columns: repeat(2, 1fr); }
+      .client-image, .process-image { height: 320px; }
+      #contact { padding: 72px 24px; }
+      #contact h2 { font-size: 34px; }
+      footer { flex-direction: column; text-align: center; }
+      .about-stat { padding-right: 28px; margin-right: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-brand">
+      <img src="Capa_6.png" alt="Pegasus" class="icon" />
+      <img src="logo_letra.png" alt="Pegasus Global Trade" class="wordmark" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#coffees">Coffees</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><span class="nav-lang"><span class="active">EN</span> | ES</span></li>
+      <li><a href="#contact" class="nav-cta">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="eyebrow">Specialty Coffee Export · Colombia</div>
+        <h1>Connecting Colombian coffee with the world.</h1>
+        <p class="hero-desc">Direct-trade specialty coffee from Colombia's finest micro-regions — sourced with integrity, exported with care.</p>
+        <div class="hero-actions">
+          <a href="#coffees" class="btn-primary">
+            View our coffees
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+            WhatsApp us
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="ph-label">Coffee farm photo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-head">
+        <div>
+          <div class="eyebrow">Who we are</div>
+          <h2>A direct bridge between Colombian farmers and specialty buyers.</h2>
+        </div>
+        <div>
+          <p class="about-intro">Based in Cúcuta, Norte de Santander, we travel across Colombia's coffee regions building honest relationships with farmers — selecting micro-lots that meet the highest quality standards for the US market.</p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="num">6+</div>
+              <div class="lbl">Origin regions</div>
+            </div>
+            <div class="about-stat">
+              <div class="num">US</div>
+              <div class="lbl">Primary market</div>
+            </div>
+            <div class="about-stat">
+              <div class="num">100%</div>
+              <div class="lbl">Direct trade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="ph-label">Team in the field — photo placeholder</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="eyebrow">Services</div>
+      <h2>What we offer.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-ic">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Direct sourcing</h3>
+          <p>We source green specialty coffee directly from farms across Colombia, with full traceability from farm to export.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-ic">
+            <svg viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5M17 14a3 3 0 1 0 0-6M7 10a3 3 0 1 0 0 6"/></svg>
+          </div>
+          <h3>Quality selection</h3>
+          <p>Each lot is cupped and evaluated for sensory profile, altitude, and process — only specialty-grade coffee moves forward.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-ic">
+            <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </div>
+          <h3>Export & logistics</h3>
+          <p>We handle export documentation, certificates, and shipping coordination — small lots delivered directly to US roasters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT: SOLDADOS -->
+  <section id="client">
+    <div class="wrap">
+      <div class="eyebrow">Who we work with</div>
+      <h2>Trusted partners.</h2>
+      <div class="client-grid">
+        <div class="client-image">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+          <span class="ph-label">Soldados Coffee — photo placeholder</span>
+        </div>
+        <div class="client-info">
+          <span class="client-badge">100% supplier</span>
+          <h2>Soldados Coffee</h2>
+          <p>We are the exclusive coffee supplier for Soldados Coffee, a US-based specialty coffee company offering rare and exceptional Colombian lots — from Castillo and Pink Bourbon to the prized Geisha variety.</p>
+          <p>Every bean Soldados roasts and sells is sourced, selected, and exported by Pegasus Global Trade — a partnership built on quality, traceability, and trust.</p>
+          <a href="https://soldadoscoffee.com" target="_blank" class="client-link">
+            Visit Soldados Coffee
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COFFEES -->
+  <section id="coffees">
+    <div class="wrap">
+      <div class="coffees-head">
+        <div>
+          <div class="eyebrow">Our coffees</div>
+          <h2>Current lots available.</h2>
+        </div>
+        <a href="#contact" class="link-arrow">Request samples
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="coffee-grid">
+
+        <div class="coffee-card">
+          <div class="coffee-img">
+            <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
+            <span class="badge">Medium</span>
+          </div>
+          <div class="coffee-info">
+            <span class="coffee-region">Norte de Santander</span>
+            <div class="coffee-name">Castillo</div>
+            <div class="coffee-notes">Sweet chocolate · Caramel · Dry fruit · Vanilla · Citric</div>
+            <div class="coffee-meta">
+              <span class="coffee-tag">El Porvenir, Ragonvalia</span>
+              <span class="coffee-tag">1,670 m</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <div class="coffee-img" style="background:#f3e6e3;">
+            <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
+            <span class="badge">Medium</span>
+          </div>
+          <div class="coffee-info">
+            <span class="coffee-region">Huila</span>
+            <div class="coffee-name">Pink Bourbon</div>
+            <div class="coffee-notes">Red berries · Honey · Caramel · Sweet</div>
+            <div class="coffee-meta">
+              <span class="coffee-tag">Finca Buena Vista</span>
+              <span class="coffee-tag">1,770 m</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <div class="coffee-img" style="background:#e9e6f0;">
+            <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
+            <span class="badge">Infusion</span>
+          </div>
+          <div class="coffee-info">
+            <span class="coffee-region">Huila</span>
+            <div class="coffee-name">Grape</div>
+            <div class="coffee-notes">Sweet · Grapes · Citric</div>
+            <div class="coffee-meta">
+              <span class="coffee-tag">Finca Buena Vista</span>
+              <span class="coffee-tag">1,770 m</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <div class="coffee-img" style="background:#e6ede6;">
+            <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
+            <span class="badge">Decaf</span>
+          </div>
+          <div class="coffee-info">
+            <span class="coffee-region">Manizales</span>
+            <div class="coffee-name">Decaf</div>
+            <div class="coffee-notes">Caramel · Sugarcane</div>
+            <div class="coffee-meta">
+              <span class="coffee-tag">Sugarcane process</span>
+              <span class="coffee-tag">Arabica</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <div class="coffee-img" style="background:#f0ece2;">
+            <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
+            <span class="badge">Rare</span>
+          </div>
+          <div class="coffee-info">
+            <span class="coffee-region">Colombia</span>
+            <div class="coffee-name">Geisha</div>
+            <div class="coffee-notes">Floral · Citrus zest · Tea-like body</div>
+            <div class="coffee-meta">
+              <span class="coffee-tag">Gesha variety</span>
+              <span class="coffee-tag">Washed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="eyebrow">How we work</div>
+      <h2>From farm to export,<br/>with care at every step.</h2>
+      <div class="process-grid">
+        <div class="process-image">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="ph-label">Farm visit — photo placeholder</span>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Direct farm visits</h3>
+              <p>We travel to farms across Norte de Santander, Huila, and the Eje Cafetero — building real relationships with producers and evaluating lots in person.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">02</span>
+            <div>
+              <h3>Quality evaluation</h3>
+              <p>Each lot is cupped and evaluated for sensory profile, traceability, altitude, and exportability. Only coffees meeting specialty standards move forward.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-num">03</span>
+            <div>
+              <h3>Documentation & delivery</h3>
+              <p>We handle all export logistics — phytosanitary certificates, customs, and shipping. Small lots delivered directly to your roastery in the US.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="wrap">
+      <div class="eyebrow">Meet the team</div>
+      <h2>The people behind Pegasus.</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo"><span>MS</span></div>
+          <div class="team-info">
+            <h3>Mateo Soler Herrera</h3>
+            <span class="team-role">CEO & Co-founder</span>
+            <p>Photographer and audiovisual producer with a passion for storytelling — and for connecting people through exceptional Colombian coffee. Mateo leads sourcing, client relationships, and the vision behind Pegasus.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>OS</span></div>
+          <div class="team-info">
+            <h3>Oscar A. Sánchez</h3>
+            <span class="team-role">Co-founder & Operations</span>
+            <p>Engineer with a deep passion for coffee, cupping, and research. Oscar leads quality evaluation and the operational backbone that keeps every export running smoothly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Ready to source <em>Colombian coffee?</em></h2>
+        <p class="contact-body">We work with specialty cafés and roasters in the United States. Reach out via WhatsApp for the fastest response — we'll get back to you the same day.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="https://wa.me/573166541111" target="_blank" class="btn-whatsapp">
+          <div class="wa-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </div>
+          <div class="btn-whatsapp-text">
+            <strong>Message us on WhatsApp</strong>
+            <span>+57 316 654 1111 · Fastest response</span>
+          </div>
+        </a>
+        <div class="contact-email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@pegasusglobaltrade.co
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <img src="Capa_6.png" alt="Pegasus" class="ic" />
+      <span>Pegasus Global Trade S.A.S. · Cúcuta, Colombia</span>
+    </div>
+    <div class="footer-copy">© 2026 Pegasus Global Trade. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
