@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pegasus Global Trade — Colombian Specialty Coffee Export</title>
-  <meta name="description" content="Direct-trade specialty coffee from Colombia's finest micro-regions. Sourced with integrity, exported with care to the United States." />
+  <title>Pegasus Global Trade — Exportación de Café Especial de Colombia</title>
+  <meta name="description" content="Café especial de comercio directo desde las mejores micro-regiones de Colombia. Abastecido con integridad, exportado con cuidado hacia los Estados Unidos." />
   <link rel="alternate" hreflang="en" href="https://pegasusglobaltrade.co/" />
   <link rel="alternate" hreflang="es" href="https://pegasusglobaltrade.co/es" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -223,15 +223,6 @@
       object-fit: cover;
       object-position: center;
     }
-    .hero-image .ph-label {
-      position: absolute;
-      bottom: 24px; left: 24px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      font-weight: 500;
-    }
     .hero-image svg { width: 64px; height: 64px; stroke: var(--text-faint); fill: none; stroke-width: 1; opacity: 0.4; }
 
     /* ===== WHO WE ARE ===== */
@@ -352,15 +343,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .client-image .ph-label {
-      position: absolute;
-      bottom: 24px; left: 24px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
     }
     .client-image svg { width: 60px; height: 60px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1; }
     .client-badge {
@@ -500,15 +482,6 @@
       align-items: center;
       justify-content: center;
     }
-    .process-image .ph-label {
-      position: absolute;
-      bottom: 24px; left: 24px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      font-weight: 500;
-    }
     .process-image svg { width: 60px; height: 60px; stroke: var(--text-faint); fill: none; stroke-width: 1; opacity: 0.4; }
 
     .process-steps { display: flex; flex-direction: column; gap: 0; }
@@ -642,7 +615,6 @@
     .footer-brand span { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 400; }
 
-
     /* ===== HAMBURGER ===== */
     .nav-hamburger {
       display: none;
@@ -662,9 +634,6 @@
       border-radius: 2px;
       transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-hamburger.open span:nth-child(1) { transform: none; }
-    .nav-hamburger.open span:nth-child(2) { opacity: 1; }
-    .nav-hamburger.open span:nth-child(3) { transform: none; }
 
     /* ===== MENU CLOSE BUTTON ===== */
     .menu-close {
@@ -712,7 +681,6 @@
       text-decoration: none;
       padding: 14px 0;
       letter-spacing: -0.01em;
-      transition: color 0.2s;
       transform: translateY(12px);
       opacity: 0;
       transition: color 0.2s, transform 0.4s ease, opacity 0.4s ease;
@@ -791,27 +759,27 @@
       </svg>
     </button>
     <a href="#hero" class="menu-home">
-      <img src="Capa_6.png" alt="Pegasus" />
+      <img src="../Capa_6.png" alt="Pegasus" />
     </a>
-    <a href="#coffees" class="menu-link">Coffees</a>
-    <a href="#services" class="menu-link">Services</a>
-    <a href="#about" class="menu-link">About</a>
-    <a href="#contact" class="menu-link menu-cta">Contact us</a>
+    <a href="#cafes" class="menu-link">Cafés</a>
+    <a href="#servicios" class="menu-link">Servicios</a>
+    <a href="#nosotros" class="menu-link">Nosotros</a>
+    <a href="#contacto" class="menu-link menu-cta">Contáctanos</a>
   </div>
 
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-brand">
-      <img src="logo-horizontal-2-trimmed.png" alt="Pegasus Global Trade" class="wordmark" />
+      <img src="../logo-horizontal-2-trimmed.png" alt="Pegasus Global Trade" class="wordmark" />
     </a>
     <ul class="nav-links">
-      <li><a href="#coffees">Coffees</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><span class="nav-lang"><span class="active">EN</span> | <a href="/es" style="color:inherit;text-decoration:none;font-weight:600;">ES</a></span></li>
-      <li><a href="#contact" class="nav-cta">Contact us</a></li>
+      <li><a href="#cafes">Cafés</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><span class="nav-lang"><a href="/" style="color:inherit;text-decoration:none;font-weight:600;">EN</a> | <span class="active">ES</span></span></li>
+      <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <button class="nav-hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -820,106 +788,105 @@
   <section id="hero">
     <div class="hero-grid">
       <div class="hero-left">
-        <h1>Connecting Colombian coffee with the world.</h1>
-        <p class="hero-desc">Direct-trade specialty coffee from Colombia's finest micro-regions — sourced with integrity, exported with care.</p>
+        <h1>Conectando el café colombiano con el mundo.</h1>
+        <p class="hero-desc">Café especial de comercio directo desde las mejores micro-regiones de Colombia — abastecido con integridad, exportado con cuidado.</p>
         <div class="hero-actions">
-          <a href="#coffees" class="btn-primary">
-            View our coffees
+          <a href="#cafes" class="btn-primary">
+            Ver nuestros cafés
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#contact" class="btn-ghost">
+          <a href="#contacto" class="btn-ghost">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
-            Contact us
+            Contáctanos
           </a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="fotohero.jpg" alt="Colombian coffee farmer holding freshly picked coffee cherries" />
+        <img src="../fotohero.jpg" alt="Caficultor colombiano sosteniendo cerezas de café recién recolectadas" />
       </div>
     </div>
   </section>
 
-  <!-- WHO WE ARE -->
-  <section id="about">
+  <!-- QUIÉNES SOMOS -->
+  <section id="nosotros">
     <div class="wrap">
       <div class="about-head">
         <div>
-          <div class="eyebrow">Who we are</div>
-          <h2>A direct bridge between Colombian farmers and specialty buyers.</h2>
+          <div class="eyebrow">Quiénes somos</div>
+          <h2>Un puente directo entre los caficultores colombianos y los compradores especializados.</h2>
         </div>
         <div>
-          <p class="about-intro">Based in Cúcuta, Norte de Santander, we travel across Colombia's coffee regions building honest relationships with farmers — selecting micro-lots that meet the highest quality standards for the US market.</p>
+          <p class="about-intro">Ubicados en Cúcuta, Norte de Santander, recorremos las regiones cafeteras de Colombia construyendo relaciones honestas con los agricultores — seleccionando micro-lotes que cumplen los más altos estándares de calidad para el mercado estadounidense.</p>
           <div class="about-stats">
             <div class="about-stat">
               <div class="num">6+</div>
-              <div class="lbl">Origin regions</div>
+              <div class="lbl">Regiones de origen</div>
             </div>
             <div class="about-stat">
               <div class="num">US</div>
-              <div class="lbl">Primary market</div>
+              <div class="lbl">Mercado principal</div>
             </div>
             <div class="about-stat">
               <div class="num">100%</div>
-              <div class="lbl">Direct trade</div>
+              <div class="lbl">Comercio directo</div>
             </div>
           </div>
         </div>
       </div>
       <div class="about-image">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span class="ph-label">Team in the field — photo placeholder</span>
+        <span class="ph-label">Equipo en campo — foto placeholder</span>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- SERVICIOS -->
+  <section id="servicios">
     <div class="wrap">
-      <div class="eyebrow">Services</div>
-      <h2>What we offer.</h2>
+      <div class="eyebrow">Servicios</div>
+      <h2>Lo que ofrecemos.</h2>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-ic">
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Direct sourcing</h3>
-          <p>We source green specialty coffee directly from farms across Colombia, with full traceability from farm to export.</p>
+          <h3>Abastecimiento directo</h3>
+          <p>Abastecemos café verde especial directamente de fincas en toda Colombia, con trazabilidad completa desde la finca hasta la exportación.</p>
         </div>
         <div class="service-card">
           <div class="service-ic">
             <svg viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5M17 14a3 3 0 1 0 0-6M7 10a3 3 0 1 0 0 6"/></svg>
           </div>
-          <h3>Quality selection</h3>
-          <p>Each lot is cupped and evaluated for sensory profile, altitude, and process — only specialty-grade coffee moves forward.</p>
+          <h3>Selección de calidad</h3>
+          <p>Cada lote es catado y evaluado por perfil sensorial, altitud y proceso — solo el café de grado especial avanza.</p>
         </div>
         <div class="service-card">
           <div class="service-ic">
             <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </div>
-          <h3>Export & logistics</h3>
-          <p>We handle export documentation, certificates, and shipping coordination — small lots delivered directly to US roasters.</p>
+          <h3>Exportación y logística</h3>
+          <p>Gestionamos la documentación de exportación, certificados y coordinación de envíos — lotes pequeños entregados directamente a tostadores en EE.UU.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CLIENT: SOLDADOS -->
+  <!-- CLIENTE: SOLDADOS -->
   <section id="client">
     <div class="wrap">
-      <div class="eyebrow">Who we work with</div>
-      <h2>Trusted partners.</h2>
+      <div class="eyebrow">Con quiénes trabajamos</div>
+      <h2>Socios de confianza.</h2>
       <div class="client-grid">
         <div class="client-image">
           <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
-          <span class="ph-label">Soldados Coffee — photo placeholder</span>
         </div>
         <div class="client-info">
-          <span class="client-badge">100% supplier</span>
+          <span class="client-badge">Proveedor exclusivo</span>
           <h2>Soldados Coffee</h2>
-          <p>We are the exclusive coffee supplier for Soldados Coffee, a US-based specialty coffee company offering rare and exceptional Colombian lots — from Castillo and Pink Bourbon to the prized Geisha variety.</p>
-          <p>Every bean Soldados roasts and sells is sourced, selected, and exported by Pegasus Global Trade — a partnership built on quality, traceability, and trust.</p>
+          <p>Somos el proveedor exclusivo de café de Soldados Coffee, una empresa de café especial con sede en EE.UU. que ofrece lotes colombianos raros y excepcionales — desde Castillo y Pink Bourbon hasta la preciada variedad Geisha.</p>
+          <p>Cada grano que Soldados tuesta y vende es abastecido, seleccionado y exportado por Pegasus Global Trade — una alianza construida sobre calidad, trazabilidad y confianza.</p>
           <a href="https://soldadoscoffee.com" target="_blank" class="client-link">
-            Visit Soldados Coffee
+            Visitar Soldados Coffee
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -927,15 +894,15 @@
     </div>
   </section>
 
-  <!-- COFFEES -->
-  <section id="coffees">
+  <!-- CAFÉS -->
+  <section id="cafes">
     <div class="wrap">
       <div class="coffees-head">
         <div>
-          <div class="eyebrow">Our coffees</div>
-          <h2>Current lots available.</h2>
+          <div class="eyebrow">Nuestros cafés</div>
+          <h2>Lotes actuales disponibles.</h2>
         </div>
-        <a href="#contact" class="link-arrow">Request samples
+        <a href="#contacto" class="link-arrow">Solicitar muestras
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -944,15 +911,15 @@
         <div class="coffee-card">
           <div class="coffee-img">
             <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
-            <span class="badge">Medium</span>
+            <span class="badge">Medio</span>
           </div>
           <div class="coffee-info">
             <span class="coffee-region">Norte de Santander</span>
             <div class="coffee-name">Castillo</div>
-            <div class="coffee-notes">Sweet chocolate · Caramel · Dry fruit · Vanilla · Citric</div>
+            <div class="coffee-notes">Chocolate dulce · Caramelo · Fruta seca · Vainilla · Cítrico</div>
             <div class="coffee-meta">
               <span class="coffee-tag">El Porvenir, Ragonvalia</span>
-              <span class="coffee-tag">1,670 m</span>
+              <span class="coffee-tag">1.670 m</span>
             </div>
           </div>
         </div>
@@ -960,15 +927,15 @@
         <div class="coffee-card">
           <div class="coffee-img" style="background:#f3e6e3;">
             <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
-            <span class="badge">Medium</span>
+            <span class="badge">Medio</span>
           </div>
           <div class="coffee-info">
             <span class="coffee-region">Huila</span>
             <div class="coffee-name">Pink Bourbon</div>
-            <div class="coffee-notes">Red berries · Honey · Caramel · Sweet</div>
+            <div class="coffee-notes">Frutos rojos · Miel · Caramelo · Dulce</div>
             <div class="coffee-meta">
               <span class="coffee-tag">Finca Buena Vista</span>
-              <span class="coffee-tag">1,770 m</span>
+              <span class="coffee-tag">1.770 m</span>
             </div>
           </div>
         </div>
@@ -976,15 +943,15 @@
         <div class="coffee-card">
           <div class="coffee-img" style="background:#e9e6f0;">
             <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
-            <span class="badge">Infusion</span>
+            <span class="badge">Infusión</span>
           </div>
           <div class="coffee-info">
             <span class="coffee-region">Huila</span>
             <div class="coffee-name">Grape</div>
-            <div class="coffee-notes">Sweet · Grapes · Citric</div>
+            <div class="coffee-notes">Dulce · Uvas · Cítrico</div>
             <div class="coffee-meta">
               <span class="coffee-tag">Finca Buena Vista</span>
-              <span class="coffee-tag">1,770 m</span>
+              <span class="coffee-tag">1.770 m</span>
             </div>
           </div>
         </div>
@@ -992,15 +959,15 @@
         <div class="coffee-card">
           <div class="coffee-img" style="background:#e6ede6;">
             <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
-            <span class="badge">Decaf</span>
+            <span class="badge">Descafeinado</span>
           </div>
           <div class="coffee-info">
             <span class="coffee-region">Manizales</span>
             <div class="coffee-name">Decaf</div>
-            <div class="coffee-notes">Caramel · Sugarcane</div>
+            <div class="coffee-notes">Caramelo · Caña de azúcar</div>
             <div class="coffee-meta">
-              <span class="coffee-tag">Sugarcane process</span>
-              <span class="coffee-tag">Arabica</span>
+              <span class="coffee-tag">Proceso caña de azúcar</span>
+              <span class="coffee-tag">Arábica</span>
             </div>
           </div>
         </div>
@@ -1008,15 +975,15 @@
         <div class="coffee-card">
           <div class="coffee-img" style="background:#f0ece2;">
             <svg viewBox="0 0 40 40"><path d="M8 18h20v6a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8zM28 20h3a4 4 0 0 1 0 8h-3M14 8c0 2-1 3-1 4M20 8c0 2-1 3-1 4"/></svg>
-            <span class="badge">Rare</span>
+            <span class="badge">Exclusivo</span>
           </div>
           <div class="coffee-info">
             <span class="coffee-region">Colombia</span>
             <div class="coffee-name">Geisha</div>
-            <div class="coffee-notes">Floral · Citrus zest · Tea-like body</div>
+            <div class="coffee-notes">Floral · Cítrico · Cuerpo suave tipo té</div>
             <div class="coffee-meta">
-              <span class="coffee-tag">Gesha variety</span>
-              <span class="coffee-tag">Washed</span>
+              <span class="coffee-tag">Variedad Gesha</span>
+              <span class="coffee-tag">Lavado</span>
             </div>
           </div>
         </div>
@@ -1025,36 +992,35 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
+  <!-- PROCESO -->
+  <section id="proceso">
     <div class="wrap">
-      <div class="eyebrow">How we work</div>
-      <h2>From farm to export,<br/>with care at every step.</h2>
+      <div class="eyebrow">Cómo trabajamos</div>
+      <h2>De la finca a la exportación,<br/>con cuidado en cada paso.</h2>
       <div class="process-grid">
         <div class="process-image">
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span class="ph-label">Farm visit — photo placeholder</span>
         </div>
         <div class="process-steps">
           <div class="process-step">
             <span class="step-num">01</span>
             <div>
-              <h3>Direct farm visits</h3>
-              <p>We travel to farms across Norte de Santander, Huila, and the Eje Cafetero — building real relationships with producers and evaluating lots in person.</p>
+              <h3>Visitas directas a fincas</h3>
+              <p>Viajamos a fincas en Norte de Santander, Huila y el Eje Cafetero — construyendo relaciones reales con los productores y evaluando los lotes en persona.</p>
             </div>
           </div>
           <div class="process-step">
             <span class="step-num">02</span>
             <div>
-              <h3>Quality evaluation</h3>
-              <p>Each lot is cupped and evaluated for sensory profile, traceability, altitude, and exportability. Only coffees meeting specialty standards move forward.</p>
+              <h3>Evaluación de calidad</h3>
+              <p>Cada lote es catado y evaluado por perfil sensorial, trazabilidad, altitud y aptitud de exportación. Solo los cafés que cumplen los estándares de especialidad avanzan.</p>
             </div>
           </div>
           <div class="process-step">
             <span class="step-num">03</span>
             <div>
-              <h3>Documentation & delivery</h3>
-              <p>We handle all export logistics — phytosanitary certificates, customs, and shipping. Small lots delivered directly to your roastery in the US.</p>
+              <h3>Documentación y entrega</h3>
+              <p>Gestionamos toda la logística de exportación — certificados fitosanitarios, aduana y envío. Lotes pequeños entregados directamente a tu tostadora en EE.UU.</p>
             </div>
           </div>
         </div>
@@ -1062,39 +1028,39 @@
     </div>
   </section>
 
-  <!-- TEAM -->
-  <section id="team">
+  <!-- EQUIPO -->
+  <section id="equipo">
     <div class="wrap">
-      <div class="eyebrow">Meet the team</div>
-      <h2>The people behind Pegasus.</h2>
+      <div class="eyebrow">Conoce al equipo</div>
+      <h2>Las personas detrás de Pegasus.</h2>
       <div class="team-grid">
         <div class="team-card">
           <div class="team-photo"><span>MS</span></div>
           <div class="team-info">
             <h3>Mateo Soler Herrera</h3>
-            <span class="team-role">CEO & Co-founder</span>
-            <p>Photographer and audiovisual producer with a passion for storytelling — and for connecting people through exceptional Colombian coffee. Mateo leads sourcing, client relationships, and the vision behind Pegasus.</p>
+            <span class="team-role">CEO & Co-fundador</span>
+            <p>Fotógrafo y productor audiovisual con pasión por contar historias — y por conectar personas a través del café colombiano excepcional. Mateo lidera el abastecimiento, las relaciones con clientes y la visión detrás de Pegasus.</p>
           </div>
         </div>
         <div class="team-card">
           <div class="team-photo"><span>OS</span></div>
           <div class="team-info">
             <h3>Oscar A. Sánchez</h3>
-            <span class="team-role">Co-founder & Operations</span>
-            <p>Engineer with a deep passion for coffee, cupping, and research. Oscar leads quality evaluation and the operational backbone that keeps every export running smoothly.</p>
+            <span class="team-role">Co-fundador & Operaciones</span>
+            <p>Ingeniero con profunda pasión por el café, la catación y la investigación. Oscar lidera la evaluación de calidad y la columna vertebral operativa que mantiene cada exportación funcionando sin problemas.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
+  <!-- CONTACTO -->
+  <section id="contacto">
     <div class="contact-grid">
       <div>
-        <div class="eyebrow">Contact</div>
-        <h2>Ready to source <em>Colombian coffee?</em></h2>
-        <p class="contact-body">We work with specialty cafés and roasters in the United States. Reach out via WhatsApp for the fastest response — we'll get back to you the same day.</p>
+        <div class="eyebrow">Contacto</div>
+        <h2>¿Listo para abastecerte de <em>café colombiano?</em></h2>
+        <p class="contact-body">Trabajamos con cafeterías especializadas y tostadores en los Estados Unidos. Escríbenos por WhatsApp para una respuesta rápida — te respondemos el mismo día.</p>
       </div>
       <div class="contact-actions">
         <a href="https://wa.me/573166541111" target="_blank" class="btn-whatsapp">
@@ -1102,8 +1068,8 @@
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           </div>
           <div class="btn-whatsapp-text">
-            <strong>Message us on WhatsApp</strong>
-            <span>+57 316 654 1111 · Fastest response</span>
+            <strong>Escríbenos por WhatsApp</strong>
+            <span>+57 316 654 1111 · Respuesta más rápida</span>
           </div>
         </a>
         <div class="contact-email">
@@ -1117,10 +1083,10 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
-      <img src="logo-horizontal.png" alt="Pegasus Global Trade" class="ic" />
+      <img src="../logo-horizontal.png" alt="Pegasus Global Trade" class="ic" />
       <span>S.A.S. · Cúcuta, Colombia</span>
     </div>
-    <div class="footer-copy">© 2026 Pegasus Global Trade. All rights reserved.</div>
+    <div class="footer-copy">© 2026 Pegasus Global Trade. Todos los derechos reservados.</div>
   </footer>
 
   <script>
