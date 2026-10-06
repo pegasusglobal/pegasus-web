@@ -53,9 +53,14 @@
   src="https://www.facebook.com/tr?id=957894506866841&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <link rel="preload" as="image" href="/assets/hero-900.webp" media="(max-width: 899px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/hero-1800.webp" media="(min-width: 900px)" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- fonts load without blocking first paint; text shows in the fallback face until they arrive -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" /></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -217,9 +222,12 @@
     .hero-bg {
       position: absolute;
       inset: -8% 0 -8% 0;
-      background: url('/assets/fotohero.jpg') center 32% / cover no-repeat;
+      background: url('/assets/hero-900.webp') center 32% / cover no-repeat;
       will-change: transform;
       z-index: 1;
+    }
+    @media (min-width: 900px) {
+      .hero-bg { background-image: url('/assets/hero-1800.webp'); }
     }
     .hero-scrim {
       position: absolute;
@@ -608,11 +616,11 @@
     <button class="menu-close" id="menuClose" aria-label="Cerrar menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <a href="#hero" class="menu-home"><img src="/assets/Capa_6.png" alt="Pegasus" /></a>
-    <a href="#coffees" class="menu-link"><span data-en="Coffees" data-es="Cafés"></span></a>
-    <a href="#services" class="menu-link"><span data-en="Services" data-es="Servicios"></span></a>
-    <a href="#about" class="menu-link"><span data-en="About" data-es="Nosotros"></span></a>
-    <a href="#contact" class="menu-link menu-cta"><span data-en="Contact us" data-es="Contáctanos"></span></a>
+    <a href="#hero" class="menu-home"><img src="/assets/mark-400.webp" alt="Pegasus" loading="lazy" decoding="async" /></a>
+    <a href="#coffees" class="menu-link"><span data-en="Coffees" data-es="Cafés">Cafés</span></a>
+    <a href="#services" class="menu-link"><span data-en="Services" data-es="Servicios">Servicios</span></a>
+    <a href="#about" class="menu-link"><span data-en="About" data-es="Nosotros">Nosotros</span></a>
+    <a href="#contact" class="menu-link menu-cta"><span data-en="Contact us" data-es="Contáctanos">Contáctanos</span></a>
     <div class="mobile-lang">
       <button type="button" class="lang-btn" data-lang="en">EN</button>
       <span class="lang-sep">|</span>
@@ -623,18 +631,18 @@
   <!-- NAV -->
   <nav id="nav" data-screen-label="Nav">
     <a href="#hero" class="nav-brand">
-      <img src="/assets/logo-horizontal-2-trimmed.png" alt="Pegasus Global Trade" class="wordmark" />
+      <img src="/assets/logo-horizontal-480.webp" alt="Pegasus Global Trade" class="wordmark" width="480" height="154" />
     </a>
     <ul class="nav-links">
-      <li><a href="#coffees"><span data-en="Coffees" data-es="Cafés"></span></a></li>
-      <li><a href="#services"><span data-en="Services" data-es="Servicios"></span></a></li>
-      <li><a href="#about"><span data-en="About" data-es="Nosotros"></span></a></li>
+      <li><a href="#coffees"><span data-en="Coffees" data-es="Cafés">Cafés</span></a></li>
+      <li><a href="#services"><span data-en="Services" data-es="Servicios">Servicios</span></a></li>
+      <li><a href="#about"><span data-en="About" data-es="Nosotros">Nosotros</span></a></li>
       <li><span class="nav-lang" id="langToggle">
         <button type="button" class="lang-btn" data-lang="en">EN</button>
         <span class="lang-sep">|</span>
         <button type="button" class="lang-btn active" data-lang="es">ES</button>
       </span></li>
-      <li><a href="#contact" class="nav-cta"><span data-en="Contact us" data-es="Contáctanos"></span></a></li>
+      <li><a href="#contact" class="nav-cta"><span data-en="Contact us" data-es="Contáctanos">Contáctanos</span></a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -644,17 +652,17 @@
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
-      <h1><span data-en="Coffee with a name," data-es="Café con un nombre,"></span><br/><span data-en="a place, and a " data-es="un lugar, y una "></span><em><span data-en="story." data-es="historia."></span></em></h1>
-      <p class="hero-desc" data-en="Single-origin micro-lots from Colombia's finest regions — sourced at origin and exported with care to specialty buyers across the United States." data-es="Micro-lotes de origen único de las mejores regiones de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Estados Unidos."></p>
+      <h1><span data-en="Coffee with a name," data-es="Café con un nombre,">Café con un nombre,</span><br/><span data-en="a place, and a " data-es="un lugar, y una ">un lugar, y una </span><em><span data-en="story." data-es="historia.">historia.</span></em></h1>
+      <p class="hero-desc" data-en="Single-origin micro-lots from Colombia's finest regions — sourced at origin and exported with care to specialty buyers across the United States." data-es="Micro-lotes de origen único de las mejores regiones de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Estados Unidos.">Micro-lotes de origen único de las mejores regiones de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Estados Unidos.</p>
       <div class="hero-actions">
         <a href="#coffees" class="btn-light">
           <span class="flag-co" aria-hidden="true"></span>
-          <span data-en="View our coffees" data-es="Ver nuestros cafés"></span>
+          <span data-en="View our coffees" data-es="Ver nuestros cafés">Ver nuestros cafés</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
-    <div class="scroll-cue"><span data-en="Scroll" data-es="Desliza"></span><span class="line"></span></div>
+    <div class="scroll-cue"><span data-en="Scroll" data-es="Desliza">Desliza</span><span class="line"></span></div>
   </section>
 
   <!-- WHO WE ARE -->
@@ -662,20 +670,20 @@
     <div class="wrap">
       <div class="about-head">
         <div class="reveal">
-          <div class="kicker lg" data-en="Who we are" data-es="Quiénes somos"></div>
-          <h2 data-en="A direct bridge between Colombian farmers and specialty buyers." data-es="Un puente directo entre los caficultores colombianos y los compradores especializados."></h2>
+          <div class="kicker lg" data-en="Who we are" data-es="Quiénes somos">Quiénes somos</div>
+          <h2 data-en="A direct bridge between Colombian farmers and specialty buyers." data-es="Un puente directo entre los caficultores colombianos y los compradores especializados.">Un puente directo entre los caficultores colombianos y los compradores especializados.</h2>
         </div>
         <div class="reveal">
-          <p class="about-intro" data-en="Based in Cúcuta, Norte de Santander, we travel across Colombia's coffee regions building honest relationships with farmers — selecting micro-lots that meet the highest quality standards for the U.S. market." data-es="Con sede en Cúcuta, Norte de Santander, recorremos las regiones cafeteras de Colombia construyendo relaciones honestas con los caficultores — seleccionando micro-lotes que cumplen los más altos estándares de calidad para el mercado estadounidense."></p>
+          <p class="about-intro" data-en="Based in Cúcuta, Norte de Santander, we travel across Colombia's coffee regions building honest relationships with farmers — selecting micro-lots that meet the highest quality standards for the U.S. market." data-es="Con sede en Cúcuta, Norte de Santander, recorremos las regiones cafeteras de Colombia construyendo relaciones honestas con los caficultores — seleccionando micro-lotes que cumplen los más altos estándares de calidad para el mercado estadounidense.">Con sede en Cúcuta, Norte de Santander, recorremos las regiones cafeteras de Colombia construyendo relaciones honestas con los caficultores — seleccionando micro-lotes que cumplen los más altos estándares de calidad para el mercado estadounidense.</p>
           <div class="about-stats">
-            <div class="about-stat"><div class="num">6+</div><div class="lbl" data-en="Origin regions" data-es="Regiones cafeteras"></div></div>
-            <div class="about-stat"><div class="num" data-en="US" data-es="USA">US</div><div class="lbl" data-en="Primary market" data-es="Mercado principal"></div></div>
-            <div class="about-stat"><div class="num">100%</div><div class="lbl" data-en="Direct trade" data-es="Comercio directo"></div></div>
+            <div class="about-stat"><div class="num">6+</div><div class="lbl" data-en="Origin regions" data-es="Regiones cafeteras">Regiones cafeteras</div></div>
+            <div class="about-stat"><div class="num" data-en="US" data-es="USA">USA</div><div class="lbl" data-en="Primary market" data-es="Mercado principal">Mercado principal</div></div>
+            <div class="about-stat"><div class="num">100%</div><div class="lbl" data-en="Direct trade" data-es="Comercio directo">Comercio directo</div></div>
           </div>
         </div>
       </div>
       <div class="about-image reveal">
-        <img src="/assets/panoramica-ragonvalia.jpg" alt="Mountain panorama of Ragonvalia, Norte de Santander, Colombia" />
+        <img src="/assets/panoramica-ragonvalia.webp" loading="lazy" decoding="async" alt="Mountain panorama of Ragonvalia, Norte de Santander, Colombia" />
         <span class="img-caption">Ragonvalia, NDS · Colombia</span>
       </div>
     </div>
@@ -686,31 +694,31 @@
     <div class="wrap">
       <div class="services-head">
         <div class="reveal">
-          <div class="kicker" data-en="What we do" data-es="Qué hacemos"></div>
-          <h2 data-en="From the farm gate to your business." data-es="De la finca a tu negocio."></h2>
+          <div class="kicker" data-en="What we do" data-es="Qué hacemos">Qué hacemos</div>
+          <h2 data-en="From the farm gate to your business." data-es="De la finca a tu negocio.">De la finca a tu negocio.</h2>
         </div>
-        <p class="reveal"><span data-en="Three things, done with rigor: we source exceptional coffee — " data-es="Tres cosas, hechas con rigor: obtenemos café excepcional — "></span><span class="hl" data-en="green or roasted" data-es="verde o tostado"></span><span data-en=" — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business." data-es=" — comprobamos su calidad, y lo movemos a través de fronteras, para que recibas lotes trazables y de nivel especial listos para tu negocio."></span></p>
+        <p class="reveal"><span data-en="Three things, done with rigor: we source exceptional coffee — " data-es="Tres cosas, hechas con rigor: obtenemos café excepcional — ">Tres cosas, hechas con rigor: obtenemos café excepcional — </span><span class="hl" data-en="green or roasted" data-es="verde o tostado">verde o tostado</span><span data-en=" — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business." data-es=" — comprobamos su calidad, y lo movemos a través de fronteras, para que recibas lotes trazables y de nivel especial listos para tu negocio."> — comprobamos su calidad, y lo movemos a través de fronteras, para que recibas lotes trazables y de nivel especial listos para tu negocio.</span></p>
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-sourcing.webp" alt="Hands holding freshly harvested coffee cherries" />
+          <img class="service-photo" src="/assets/service-sourcing-800.webp" loading="lazy" decoding="async" alt="Hands holding freshly harvested coffee cherries" />
           <div class="service-body">
-            <h3 data-en="Direct sourcing" data-es="Abastecimiento directo"></h3>
-            <p><span data-en="We know our growers first-hand. We walk their farms and trace every lot end to end — from the " data-es="Conocemos a nuestros caficultores de primera mano. Recorremos sus fincas y trazamos cada lote de principio a fin — desde el "></span><span class="service-hl" data-en="exact origin" data-es="origen exacto"></span><span data-en=" to the process behind the cup." data-es=" hasta el proceso detrás de la taza."></span></p>
+            <h3 data-en="Direct sourcing" data-es="Abastecimiento directo">Abastecimiento directo</h3>
+            <p><span data-en="We know our growers first-hand. We walk their farms and trace every lot end to end — from the " data-es="Conocemos a nuestros caficultores de primera mano. Recorremos sus fincas y trazamos cada lote de principio a fin — desde el ">Conocemos a nuestros caficultores de primera mano. Recorremos sus fincas y trazamos cada lote de principio a fin — desde el </span><span class="service-hl" data-en="exact origin" data-es="origen exacto">origen exacto</span><span data-en=" to the process behind the cup." data-es=" hasta el proceso detrás de la taza."> hasta el proceso detrás de la taza.</span></p>
           </div>
         </div>
         <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-quality.webp" alt="Coffee cupping session with sensory flavor wheel" />
+          <img class="service-photo" src="/assets/service-quality-800.webp" loading="lazy" decoding="async" alt="Coffee cupping session with sensory flavor wheel" />
           <div class="service-body">
-            <h3 data-en="Quality selection" data-es="Selección de calidad"></h3>
-            <p><span data-en="Every lot is graded on what matters — " data-es="Cada lote se evalúa en lo que realmente importa — "></span><span class="service-hl" data-en="sensory profile, yield, process and moisture" data-es="perfil sensorial, rendimiento, proceso y humedad"></span><span data-en=" — evaluated by an SCA-certified cupper before it ships." data-es=" — evaluado por un catador certificado por la SCA antes de despacharse."></span></p>
+            <h3 data-en="Quality selection" data-es="Selección de calidad">Selección de calidad</h3>
+            <p><span data-en="Every lot is graded on what matters — " data-es="Cada lote se evalúa en lo que realmente importa — ">Cada lote se evalúa en lo que realmente importa — </span><span class="service-hl" data-en="sensory profile, yield, process and moisture" data-es="perfil sensorial, rendimiento, proceso y humedad">perfil sensorial, rendimiento, proceso y humedad</span><span data-en=" — evaluated by an SCA-certified cupper before it ships." data-es=" — evaluado por un catador certificado por la SCA antes de despacharse."> — evaluado por un catador certificado por la SCA antes de despacharse.</span></p>
           </div>
         </div>
         <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-export.jpg" alt="Air cargo being loaded for international export" />
+          <img class="service-photo" src="/assets/service-export-800.webp" loading="lazy" decoding="async" alt="Air cargo being loaded for international export" />
           <div class="service-body">
-            <h3 data-en="Export &amp; logistics" data-es="Exportación y logística">Export &amp; logistics</h3>
-            <p><span data-en="We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as " data-es="Entregamos a cafeterías, tostadores y compradores en todo EE. UU. Trabajando con una de las redes de carga más grandes y eficientes del mundo, tu café puede llegar en tan solo "></span><span class="service-hl" data-en="4 days" data-es="4 días"></span><span data-en="." data-es="."></span></p>
+            <h3 data-en="Export &amp; logistics" data-es="Exportación y logística">Exportación y logística</h3>
+            <p><span data-en="We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as " data-es="Entregamos a cafeterías, tostadores y compradores en todo EE. UU. Trabajando con una de las redes de carga más grandes y eficientes del mundo, tu café puede llegar en tan solo ">Entregamos a cafeterías, tostadores y compradores en todo EE. UU. Trabajando con una de las redes de carga más grandes y eficientes del mundo, tu café puede llegar en tan solo </span><span class="service-hl" data-en="4 days" data-es="4 días">4 días</span><span data-en="." data-es=".">.</span></p>
           </div>
         </div>
       </div>
@@ -722,11 +730,11 @@
     <div class="wrap">
       <div class="coffees-head">
         <div class="reveal">
-          <div class="kicker" data-en="Our coffees" data-es="Nuestros cafés"></div>
-          <h2 data-en="Current lots available." data-es="Lotes disponibles."></h2>
-          <p class="lead" data-en="Hover any lot to see it come alive." data-es="Pasa el mouse sobre cualquier lote para verlo cobrar vida."></p>
+          <div class="kicker" data-en="Our coffees" data-es="Nuestros cafés">Nuestros cafés</div>
+          <h2 data-en="Current lots available." data-es="Lotes disponibles.">Lotes disponibles.</h2>
+          <p class="lead" data-en="Hover any lot to see it come alive." data-es="Pasa el mouse sobre cualquier lote para verlo cobrar vida.">Pasa el mouse sobre cualquier lote para verlo cobrar vida.</p>
         </div>
-        <a href="#contact" class="link-arrow reveal"><span data-en="Request samples" data-es="Solicitar muestras"></span>
+        <a href="#contact" class="link-arrow reveal"><span data-en="Request samples" data-es="Solicitar muestras">Solicitar muestras</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -735,7 +743,7 @@
         <div class="coffee-card reveal" data-video="/assets/video-castillo.mp4">
           <div class="coffee-stage">
             <div class="coffee-media"><div class="media-ph"></div></div>
-            <span class="sack-badge" data-en="Washed" data-es="Lavado">Washed</span>
+            <span class="sack-badge" data-en="Washed" data-es="Lavado">Lavado</span>
             <div class="sack">
               <div class="sack-region">Norte de Santander</div>
               <div class="sack-name">Castillo</div>
@@ -744,7 +752,7 @@
             </div>
           </div>
           <div class="coffee-info">
-            <div class="coffee-notes"><span class="note-chip" data-en="Sweet chocolate" data-es="Chocolate dulce">Sweet chocolate</span><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramel</span><span class="note-chip" data-en="Dry fruit" data-es="Fruta seca">Dry fruit</span><span class="note-chip" data-en="Vanilla" data-es="Vainilla">Vanilla</span></div>
+            <div class="coffee-notes"><span class="note-chip" data-en="Sweet chocolate" data-es="Chocolate dulce">Chocolate dulce</span><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramelo</span><span class="note-chip" data-en="Dry fruit" data-es="Fruta seca">Fruta seca</span><span class="note-chip" data-en="Vanilla" data-es="Vainilla">Vainilla</span></div>
             <div class="coffee-meta"><span class="coffee-tag">Ragonvalia</span><span class="coffee-tag">1,670 m</span></div>
           </div>
         </div>
@@ -752,7 +760,7 @@
         <div class="coffee-card reveal" data-video="/assets/video-pink-bourbon.mp4">
           <div class="coffee-stage">
             <div class="coffee-media"><div class="media-ph"></div></div>
-            <span class="sack-badge" data-en="Washed" data-es="Lavado">Washed</span>
+            <span class="sack-badge" data-en="Washed" data-es="Lavado">Lavado</span>
             <div class="sack">
               <div class="sack-region">Huila</div>
               <div class="sack-name">Pink<br/>Bourbon</div>
@@ -761,7 +769,7 @@
             </div>
           </div>
           <div class="coffee-info">
-            <div class="coffee-notes"><span class="note-chip" data-en="Red berries" data-es="Frutos rojos">Red berries</span><span class="note-chip" data-en="Honey" data-es="Miel">Honey</span><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramel</span><span class="note-chip" data-en="Sweet" data-es="Dulce">Sweet</span></div>
+            <div class="coffee-notes"><span class="note-chip" data-en="Red berries" data-es="Frutos rojos">Frutos rojos</span><span class="note-chip" data-en="Honey" data-es="Miel">Miel</span><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramelo</span><span class="note-chip" data-en="Sweet" data-es="Dulce">Dulce</span></div>
             <div class="coffee-meta"><span class="coffee-tag">Finca Buena Vista</span><span class="coffee-tag">1,770 m</span></div>
           </div>
         </div>
@@ -769,7 +777,7 @@
         <div class="coffee-card reveal" data-video="/assets/video-grape.mp4">
           <div class="coffee-stage">
             <div class="coffee-media"><div class="media-ph"></div></div>
-            <span class="sack-badge" data-en="Infusion" data-es="Infusión">Infusion</span>
+            <span class="sack-badge" data-en="Infusion" data-es="Infusión">Infusión</span>
             <div class="sack">
               <div class="sack-region">Huila</div>
               <div class="sack-name">Grape</div>
@@ -778,7 +786,7 @@
             </div>
           </div>
           <div class="coffee-info">
-            <div class="coffee-notes"><span class="note-chip" data-en="Sweet" data-es="Dulce">Sweet</span><span class="note-chip" data-en="Grapes" data-es="Uvas">Grapes</span><span class="note-chip" data-en="Citric" data-es="Cítrico">Citric</span></div>
+            <div class="coffee-notes"><span class="note-chip" data-en="Sweet" data-es="Dulce">Dulce</span><span class="note-chip" data-en="Grapes" data-es="Uvas">Uvas</span><span class="note-chip" data-en="Citric" data-es="Cítrico">Cítrico</span></div>
             <div class="coffee-meta"><span class="coffee-tag">Finca Buena Vista</span><span class="coffee-tag">1,770 m</span></div>
           </div>
         </div>
@@ -786,7 +794,7 @@
         <div class="coffee-card reveal" data-video="/assets/video-decaf.mp4">
           <div class="coffee-stage">
             <div class="coffee-media"><div class="media-ph"></div></div>
-            <span class="sack-badge" data-en="Decaf" data-es="Descafeinado">Decaf</span>
+            <span class="sack-badge" data-en="Decaf" data-es="Descafeinado">Descafeinado</span>
             <div class="sack">
               <div class="sack-region">Manizales</div>
               <div class="sack-name">Decaf</div>
@@ -795,15 +803,15 @@
             </div>
           </div>
           <div class="coffee-info">
-            <div class="coffee-notes"><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramel</span><span class="note-chip" data-en="Sugarcane" data-es="Caña de azúcar">Sugarcane</span></div>
-            <div class="coffee-meta"><span class="coffee-tag" data-en="Sugarcane process" data-es="Proceso caña de azúcar">Sugarcane process</span><span class="coffee-tag">Arabica</span></div>
+            <div class="coffee-notes"><span class="note-chip" data-en="Caramel" data-es="Caramelo">Caramelo</span><span class="note-chip" data-en="Sugarcane" data-es="Caña de azúcar">Caña de azúcar</span></div>
+            <div class="coffee-meta"><span class="coffee-tag" data-en="Sugarcane process" data-es="Proceso caña de azúcar">Proceso caña de azúcar</span><span class="coffee-tag">Arabica</span></div>
           </div>
         </div>
 
         <div class="coffee-card reveal" data-video="/assets/video-geisha.mp4">
           <div class="coffee-stage">
             <div class="coffee-media"><div class="media-ph"></div></div>
-            <span class="sack-badge rare" data-en="Exotic" data-es="Exótico">Exotic</span>
+            <span class="sack-badge rare" data-en="Exotic" data-es="Exótico">Exótico</span>
             <div class="sack">
               <div class="sack-region">Norte de Santander</div>
               <div class="sack-name">Geisha</div>
@@ -812,8 +820,8 @@
             </div>
           </div>
           <div class="coffee-info">
-            <div class="coffee-notes"><span class="note-chip" data-en="Floral" data-es="Floral">Floral</span><span class="note-chip" data-en="Citrus zest" data-es="Ralladura cítrica">Citrus zest</span><span class="note-chip" data-en="Tea-like body" data-es="Cuerpo tipo té">Tea-like body</span></div>
-            <div class="coffee-meta"><span class="coffee-tag" data-en="Geisha variety" data-es="Variedad Geisha">Geisha variety</span><span class="coffee-tag" data-en="Washed" data-es="Lavado">Washed</span></div>
+            <div class="coffee-notes"><span class="note-chip" data-en="Floral" data-es="Floral">Floral</span><span class="note-chip" data-en="Citrus zest" data-es="Ralladura cítrica">Ralladura cítrica</span><span class="note-chip" data-en="Tea-like body" data-es="Cuerpo tipo té">Cuerpo tipo té</span></div>
+            <div class="coffee-meta"><span class="coffee-tag" data-en="Geisha variety" data-es="Variedad Geisha">Variedad Geisha</span><span class="coffee-tag" data-en="Washed" data-es="Lavado">Lavado</span></div>
           </div>
         </div>
 
@@ -827,8 +835,8 @@
       <div class="client-grid">
         <div class="client-image reveal">
           <div class="client-slider" id="clientSlider">
-            <div class="client-slide active"><img src="/assets/soldados-inside.jpg" alt="Inside Soldados Coffee" /></div>
-            <div class="client-slide"><img src="/assets/soldados-pourover.jpg" alt="Pour-over at Soldados Coffee" style="object-position: center 78%;" /></div>
+            <div class="client-slide active"><img src="/assets/soldados-inside.webp" loading="lazy" decoding="async" alt="Inside Soldados Coffee" /></div>
+            <div class="client-slide"><img src="/assets/soldados-pourover.webp" loading="lazy" decoding="async" alt="Pour-over at Soldados Coffee" style="object-position: center 78%;" /></div>
           </div>
           <div class="client-dots" id="clientDots">
             <span class="client-dot active"></span>
@@ -836,12 +844,12 @@
           </div>
         </div>
         <div class="client-info reveal">
-          <span class="client-badge" data-en="★ Exclusive supplier" data-es="★ Proveedor exclusivo">★ Exclusive supplier</span>
-          <div class="kicker" data-en="Who we work with" data-es="Con quién trabajamos"></div>
+          <span class="client-badge" data-en="★ Exclusive supplier" data-es="★ Proveedor exclusivo">★ Proveedor exclusivo</span>
+          <div class="kicker" data-en="Who we work with" data-es="Con quién trabajamos">Con quién trabajamos</div>
           <h2>Soldados Coffee</h2>
-          <p data-en="We are the exclusive coffee supplier for Soldados Coffee, a U.S.-based specialty company offering rare and exceptional Colombian lots — from Castillo and Pink Bourbon to the prized Geisha variety." data-es="Somos el proveedor exclusivo de café para Soldados Coffee, una empresa especializada con sede en Estados Unidos que ofrece lotes colombianos raros y excepcionales — desde Castillo y Pink Bourbon hasta la preciada variedad Geisha."></p>
-          <p data-en="Every bean Soldados roasts and sells is sourced, selected, and exported by Pegasus Global Trade — a partnership built on quality, traceability, and trust." data-es="Cada grano que Soldados tuesta y vende es obtenido, seleccionado y exportado por Pegasus Global Trade — una alianza construida sobre calidad, trazabilidad y confianza."></p>
-          <a href="https://soldadoscoffee.com" target="_blank" rel="noopener" class="client-link"><span data-en="Visit Soldados Coffee" data-es="Visitar Soldados Coffee"></span>
+          <p data-en="We are the exclusive coffee supplier for Soldados Coffee, a U.S.-based specialty company offering rare and exceptional Colombian lots — from Castillo and Pink Bourbon to the prized Geisha variety." data-es="Somos el proveedor exclusivo de café para Soldados Coffee, una empresa especializada con sede en Estados Unidos que ofrece lotes colombianos raros y excepcionales — desde Castillo y Pink Bourbon hasta la preciada variedad Geisha.">Somos el proveedor exclusivo de café para Soldados Coffee, una empresa especializada con sede en Estados Unidos que ofrece lotes colombianos raros y excepcionales — desde Castillo y Pink Bourbon hasta la preciada variedad Geisha.</p>
+          <p data-en="Every bean Soldados roasts and sells is sourced, selected, and exported by Pegasus Global Trade — a partnership built on quality, traceability, and trust." data-es="Cada grano que Soldados tuesta y vende es obtenido, seleccionado y exportado por Pegasus Global Trade — una alianza construida sobre calidad, trazabilidad y confianza.">Cada grano que Soldados tuesta y vende es obtenido, seleccionado y exportado por Pegasus Global Trade — una alianza construida sobre calidad, trazabilidad y confianza.</p>
+          <a href="https://soldadoscoffee.com" target="_blank" rel="noopener" class="client-link"><span data-en="Visit Soldados Coffee" data-es="Visitar Soldados Coffee">Visitar Soldados Coffee</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -853,24 +861,24 @@
   <section id="team" data-screen-label="Team">
     <div class="wrap">
       <div class="team-head reveal">
-        <div class="kicker" data-en="Meet the team" data-es="Conoce al equipo"></div>
-        <h2 data-en="The people behind Pegasus." data-es="Las personas detrás de Pegasus."></h2>
+        <div class="kicker" data-en="Meet the team" data-es="Conoce al equipo">Conoce al equipo</div>
+        <h2 data-en="The people behind Pegasus." data-es="Las personas detrás de Pegasus.">Las personas detrás de Pegasus.</h2>
       </div>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-photo"><img src="/assets/mateo-soler-optimized.jpg" alt="Mateo Soler Herrera" /></div>
+          <div class="team-photo"><img src="/assets/mateo-soler.webp" loading="lazy" decoding="async" alt="Mateo Soler Herrera" /></div>
           <div class="team-info">
             <h3>Mateo Soler H.</h3>
-            <span class="team-role" data-en="Co-Founder &amp; CEO" data-es="Cofundador y CEO">Co-Founder &amp; CEO</span>
-            <p data-en="Financial administrator and certified coffee cupper. A passion for travel and nature has taken Mateo deep into the process — from the seed to a first-hand understanding of the U.S. market." data-es="Administrador financiero y catador de café certificado. Su pasión por viajar y por la naturaleza lo ha llevado a conocer el proceso a fondo — desde la semilla hasta entender de primera mano el mercado estadounidense."></p>
+            <span class="team-role" data-en="Co-Founder &amp; CEO" data-es="Cofundador y CEO">Cofundador y CEO</span>
+            <p data-en="Financial administrator and certified coffee cupper. A passion for travel and nature has taken Mateo deep into the process — from the seed to a first-hand understanding of the U.S. market." data-es="Administrador financiero y catador de café certificado. Su pasión por viajar y por la naturaleza lo ha llevado a conocer el proceso a fondo — desde la semilla hasta entender de primera mano el mercado estadounidense.">Administrador financiero y catador de café certificado. Su pasión por viajar y por la naturaleza lo ha llevado a conocer el proceso a fondo — desde la semilla hasta entender de primera mano el mercado estadounidense.</p>
           </div>
         </div>
         <div class="team-card reveal">
           <div class="team-photo"><span>OS</span></div>
           <div class="team-info">
             <h3>Oscar A. Sánchez</h3>
-            <span class="team-role" data-en="Co-Founder &amp; Operations" data-es="Cofundador y Operaciones">Co-Founder &amp; Operations</span>
-            <p data-en="Industrial engineer and co-founder. Oscar brings that same discipline to coffee — uncompromising quality and an obsession for every detail." data-es="Ingeniero industrial y cofundador. Oscar aplica esa misma disciplina al café — calidad sin concesiones y obsesión por cada detalle."></p>
+            <span class="team-role" data-en="Co-Founder &amp; Operations" data-es="Cofundador y Operaciones">Cofundador y Operaciones</span>
+            <p data-en="Industrial engineer and co-founder. Oscar brings that same discipline to coffee — uncompromising quality and an obsession for every detail." data-es="Ingeniero industrial y cofundador. Oscar aplica esa misma disciplina al café — calidad sin concesiones y obsesión por cada detalle.">Ingeniero industrial y cofundador. Oscar aplica esa misma disciplina al café — calidad sin concesiones y obsesión por cada detalle.</p>
           </div>
         </div>
       </div>
@@ -881,18 +889,18 @@
   <section id="contact" data-screen-label="Contact">
     <div class="contact-grid">
       <div class="reveal">
-        <h2><span data-en="Ready to source " data-es="¿Listo para conseguir "></span><em><span data-en="Colombian coffee?" data-es="café colombiano?"></span></em></h2>
-        <p class="contact-body" data-en="We work with specialty cafés, roasters and buyers across the United States. Reach out via WhatsApp for the fastest response — we'll get back to you the same day." data-es="Trabajamos con cafeterías especializadas, tostadores y compradores en Estados Unidos. Escríbenos por WhatsApp para la respuesta más rápida — te contestamos el mismo día."></p>
+        <h2><span data-en="Ready to source " data-es="¿Listo para conseguir ">¿Listo para conseguir </span><em><span data-en="Colombian coffee?" data-es="café colombiano?">café colombiano?</span></em></h2>
+        <p class="contact-body" data-en="We work with specialty cafés, roasters and buyers across the United States. Reach out via WhatsApp for the fastest response — we'll get back to you the same day." data-es="Trabajamos con cafeterías especializadas, tostadores y compradores en Estados Unidos. Escríbenos por WhatsApp para la respuesta más rápida — te contestamos el mismo día.">Trabajamos con cafeterías especializadas, tostadores y compradores en Estados Unidos. Escríbenos por WhatsApp para la respuesta más rápida — te contestamos el mismo día.</p>
       </div>
       <div class="contact-actions reveal">
         <a href="https://wa.me/573166541111" target="_blank" rel="noopener" class="btn-whatsapp">
           <div class="wa-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></div>
-          <div class="btn-whatsapp-text"><strong data-en="Message us on WhatsApp" data-es="Escríbenos por WhatsApp">Message us on WhatsApp</strong><span data-en="+57 316 654 1111 · Fastest response" data-es="+57 316 654 1111 · Respuesta más rápida">+57 316 654 1111 · Fastest response</span></div>
+          <div class="btn-whatsapp-text"><strong data-en="Message us on WhatsApp" data-es="Escríbenos por WhatsApp">Escríbenos por WhatsApp</strong><span data-en="+57 316 654 1111 · Fastest response" data-es="+57 316 654 1111 · Respuesta más rápida">+57 316 654 1111 · Respuesta más rápida</span></div>
         </a>
         <div class="contact-email-btn">
           <a href="mailto:contact@pegasusglobaltrade.co" class="btn-whatsapp">
-            <div class="pega-icon"><img src="/assets/Capa_6.png" alt="Pegasus" /></div>
-            <div class="btn-whatsapp-text"><strong data-en="Email us" data-es="Escríbenos por correo">Email us</strong><span>contact@pegasusglobaltrade.co</span></div>
+            <div class="pega-icon"><img src="/assets/mark-400.webp" alt="Pegasus" loading="lazy" decoding="async" /></div>
+            <div class="btn-whatsapp-text"><strong data-en="Email us" data-es="Escríbenos por correo">Escríbenos por correo</strong><span>contact@pegasusglobaltrade.co</span></div>
           </a>
         </div>
       </div>
@@ -902,32 +910,23 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
-      <img src="/assets/logo-horizontal-2-trimmed.png" alt="Pegasus Global Trade" class="ic" />
+      <img src="/assets/logo-horizontal-480.webp" alt="Pegasus Global Trade" class="ic" loading="lazy" decoding="async" />
       <span>Cúcuta, Colombia</span>
     </div>
-    <div class="footer-copy" data-en="© 2026 Pegasus Global Trade. All rights reserved." data-es="© 2026 Pegasus Global Trade. Todos los derechos reservados.">© 2026 Pegasus Global Trade. All rights reserved.</div>
+    <div class="footer-copy" data-en="© 2026 Pegasus Global Trade. All rights reserved." data-es="© 2026 Pegasus Global Trade. Todos los derechos reservados.">© 2026 Pegasus Global Trade. Todos los derechos reservados.</div>
   </footer>
 
   <script>
-    /* language: this page renders PAGE_LANG; the switcher navigates between / and /es */
+    /* language: text is rendered into the HTML by build-es.py; the switcher navigates between / and /es */
     (function () {
       const PAGE_LANG = 'es';
       const URLS = { en: '/', es: '/es' };
-
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const val = el.getAttribute(PAGE_LANG === 'es' ? 'data-es' : 'data-en');
-        if (val !== null) el.textContent = val;
-      });
-
       document.querySelectorAll('.lang-btn').forEach(btn => {
         const lang = btn.getAttribute('data-lang');
-        btn.classList.toggle('active', lang === PAGE_LANG);
         btn.addEventListener('click', () => {
           if (lang !== PAGE_LANG) window.location.href = URLS[lang];
         });
       });
-
-      document.documentElement.setAttribute('lang', PAGE_LANG);
     })();
 
     /* mobile menu */

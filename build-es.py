@@ -1,17 +1,34 @@
 #!/usr/bin/env python3
-"""Regenerate es/index.html from index.html.
+"""Render the text of both language pages from their data-en / data-es attributes.
 
 index.html is the single source of markup. Every translatable string lives in a
-data-en / data-es attribute pair, so the Spanish page is the same file with the
-language flipped. Run this after any edit to index.html:
+data-en / data-es attribute pair. This script writes the English strings into
+index.html and the Spanish ones into es/index.html, so the text is in the HTML
+itself and paints without waiting for JavaScript. Run it after any edit to
+index.html:
 
     python3 build-es.py
 """
 import pathlib
+import re
 import sys
 
 ROOT = pathlib.Path(__file__).parent
-src = (ROOT / "index.html").read_text(encoding="utf-8")
+TRANSLATABLE = re.compile(
+    r'(<(\w+)\b[^>]*?\sdata-en="([^"]*)"[^>]*?\sdata-es="([^"]*)"[^>]*>)(.*?)(</\2>)', re.S
+)
+
+
+def render_text(html, lang):
+    group = 3 if lang == "en" else 4
+    return TRANSLATABLE.sub(lambda m: m.group(1) + m.group(group) + m.group(6), html)
+
+
+index_path = ROOT / "index.html"
+src = render_text(index_path.read_text(encoding="utf-8"), "en")
+if src.count("data-en=") != len(TRANSLATABLE.findall(src)):
+    sys.exit("build-es.py: some data-en elements were not matched; check attribute order (data-en before data-es)")
+index_path.write_text(src, encoding="utf-8")
 
 REPLACEMENTS = [
     ('<html lang="en">', '<html lang="es">'),
@@ -58,6 +75,7 @@ for old, new in REPLACEMENTS:
     if old not in out:
         sys.exit(f"build-es.py: expected string not found in index.html:\n  {old[:90]}")
     out = out.replace(old, new)
+out = render_text(out, "es")
 
 (ROOT / "es").mkdir(exist_ok=True)
 (ROOT / "es" / "index.html").write_text(out, encoding="utf-8")
