@@ -9,6 +9,15 @@
   <link rel="alternate" hreflang="en" href="https://pegasusglobaltrade.co/" />
   <link rel="alternate" hreflang="es" href="https://pegasusglobaltrade.co/es" />
   <link rel="alternate" hreflang="x-default" href="https://pegasusglobaltrade.co/" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FKWJ7VB9F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4FKWJ7VB9F');
+  </script>
+  <!-- End Google tag -->
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -1011,14 +1020,13 @@
       });
     })();
 
-    /* Meta Pixel: report outbound contact clicks as Contact */
+    /* report outbound contact clicks to Meta and GA4 */
     (function () {
       document.querySelectorAll('a[href^="https://wa.me/"], a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', () => {
-          if (typeof fbq !== 'function') return;
-          fbq('track', 'Contact', {
-            content_name: link.href.startsWith('mailto:') ? 'email' : 'whatsapp'
-          });
+          const channel = link.href.startsWith('mailto:') ? 'email' : 'whatsapp';
+          if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: channel });
+          if (typeof gtag === 'function') gtag('event', 'contact', { method: channel });
         });
       });
     })();
