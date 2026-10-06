@@ -26,8 +26,27 @@ REPLACEMENTS = [
         "Abastecido con integridad, exportado con cuidado hacia los Estados Unidos.",
     ),
     (
-        '<link rel="canonical" href="https://pegasusglobaltrade.co/" />',
-        '<link rel="canonical" href="https://pegasusglobaltrade.co/es" />',
+        '<link rel="canonical" href="https://www.pegasusglobaltrade.co/" />',
+        '<link rel="canonical" href="https://www.pegasusglobaltrade.co/es" />',
+    ),
+    ('<meta property="og:locale" content="en_US" />', '<meta property="og:locale" content="es_CO" />'),
+    (
+        '<meta property="og:url" content="https://www.pegasusglobaltrade.co/" />',
+        '<meta property="og:url" content="https://www.pegasusglobaltrade.co/es" />',
+    ),
+    (
+        '<meta property="og:title" content="Colombian Specialty Coffee, Exported Direct" />',
+        '<meta property="og:title" content="Café Especial Colombiano, Exportado Directo" />',
+    ),
+    (
+        '<meta property="og:description" content="Single-origin micro-lots from Colombia\'s finest '
+        'regions — sourced at the farm and exported with care to specialty buyers across the United States." />',
+        '<meta property="og:description" content="Micro-lotes de origen único de las mejores regiones '
+        'de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Estados Unidos." />',
+    ),
+    (
+        '<meta property="og:image:alt" content="Colombian coffee farmer holding freshly picked coffee cherries" />',
+        '<meta property="og:image:alt" content="Caficultor colombiano sosteniendo cerezas de café recién recolectadas" />',
     ),
     ("const PAGE_LANG = 'en';", "const PAGE_LANG = 'es';"),
     ('class="lang-btn active" data-lang="en"', 'class="lang-btn" data-lang="en"'),
