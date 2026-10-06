@@ -40,7 +40,7 @@ REPLACEMENTS = [
         "Direct-trade specialty coffee from Colombia's finest micro-regions. "
         "Sourced with integrity, exported with care to the United States.",
         "Café especial de comercio directo desde las mejores micro-regiones de Colombia. "
-        "Abastecido con integridad, exportado con cuidado hacia los Estados Unidos.",
+        "Abastecido con integridad, exportado con cuidado hacia Latinoamérica, Europa y Estados Unidos.",
     ),
     (
         '<link rel="canonical" href="https://www.pegasusglobaltrade.co/" />',
@@ -59,7 +59,7 @@ REPLACEMENTS = [
         '<meta property="og:description" content="Single-origin micro-lots from Colombia\'s finest '
         'regions — sourced at the farm and exported with care to specialty buyers across the United States." />',
         '<meta property="og:description" content="Micro-lotes de origen único de las mejores regiones '
-        'de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Estados Unidos." />',
+        'de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Latinoamérica, Europa y Estados Unidos." />',
     ),
     (
         '<meta property="og:image:alt" content="Colombian coffee farmer holding freshly picked coffee cherries" />',
