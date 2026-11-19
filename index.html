@@ -381,7 +381,7 @@
     .ph.dark span { color: rgba(255,255,255,0.5); }
 
     /* ===== SERVICES ===== */
-    #services { background: var(--white); }
+    #services { background: var(--off-white); border-top: 1px solid var(--border); }
     .services-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 40px; }
     .services-head h2 { color: var(--navy); }
     .services-head p { font-size: 17px; line-height: 1.8; color: var(--text-muted); font-weight: 400; }
@@ -401,7 +401,7 @@
     .service-hl { color: var(--gold); font-weight: 600; }
 
     /* ===== COFFEES ===== */
-    #coffees { background: var(--off-white); border-top: 1px solid var(--border); }
+    #coffees { background: var(--white); }
     .coffees-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
     .coffees-head h2 { color: var(--navy); }
     .coffees-head .lead { font-size: 17px; color: var(--text-muted); margin-top: 14px; max-width: 420px; line-height: 1.7; }
@@ -721,42 +721,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" data-screen-label="Services">
-    <div class="wrap">
-      <div class="services-head">
-        <div class="reveal">
-          <div class="kicker" data-en="What we do" data-es="Qué hacemos">What we do</div>
-          <h2 data-en="From the farm gate to your business." data-es="De la finca a tu negocio.">From the farm gate to your business.</h2>
-        </div>
-        <p class="reveal"><span data-en="Three things, done with rigor: we source exceptional coffee — " data-es="Tres cosas, hechas con rigor: obtenemos café excepcional — ">Three things, done with rigor: we source exceptional coffee — </span><span class="hl" data-en="green or roasted" data-es="verde o tostado">green or roasted</span><span data-en=" — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business." data-es=" — comprobamos su calidad, y lo movemos a través de fronteras, para que recibas lotes trazables y de nivel especial listos para tu negocio."> — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business.</span></p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-sourcing-800.webp" loading="lazy" decoding="async" alt="Hands holding freshly harvested coffee cherries" />
-          <div class="service-body">
-            <h3 data-en="Direct sourcing" data-es="Abastecimiento directo">Direct sourcing</h3>
-            <p><span data-en="We know our growers first-hand. We walk their farms and trace every lot end to end — from the " data-es="Conocemos a nuestros caficultores de primera mano. Recorremos sus fincas y trazamos cada lote de principio a fin — desde el ">We know our growers first-hand. We walk their farms and trace every lot end to end — from the </span><span class="service-hl" data-en="exact origin" data-es="origen exacto">exact origin</span><span data-en=" to the process behind the cup." data-es=" hasta el proceso detrás de la taza."> to the process behind the cup.</span></p>
-          </div>
-        </div>
-        <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-quality-800.webp" loading="lazy" decoding="async" alt="Coffee cupping session with sensory flavor wheel" />
-          <div class="service-body">
-            <h3 data-en="Quality selection" data-es="Selección de calidad">Quality selection</h3>
-            <p><span data-en="Every lot is graded on what matters — " data-es="Cada lote se evalúa en lo que realmente importa — ">Every lot is graded on what matters — </span><span class="service-hl" data-en="sensory profile, yield, process and moisture" data-es="perfil sensorial, rendimiento, proceso y humedad">sensory profile, yield, process and moisture</span><span data-en=" — evaluated by an SCA-certified cupper before it ships." data-es=" — evaluado por un catador certificado por la SCA antes de despacharse."> — evaluated by an SCA-certified cupper before it ships.</span></p>
-          </div>
-        </div>
-        <div class="service-card reveal">
-          <img class="service-photo" src="/assets/service-export-800.webp" loading="lazy" decoding="async" alt="Air cargo being loaded for international export" />
-          <div class="service-body">
-            <h3 data-en="Export &amp; logistics" data-es="Exportación y logística">Export &amp; logistics</h3>
-            <p><span data-en="We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as " data-es="Entregamos a cafeterías, tostadores y compradores en Latinoamérica, Europa y Estados Unidos. Trabajando con una de las redes de carga más grandes y eficientes del mundo, a EE. UU. tu café puede llegar en tan solo ">We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as </span><span class="service-hl" data-en="4 days" data-es="4 días">4 days</span><span data-en="." data-es=".">.</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- COFFEES -->
   <section id="coffees" data-screen-label="Coffees">
     <div class="wrap">
@@ -857,6 +821,42 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" data-screen-label="Services">
+    <div class="wrap">
+      <div class="services-head">
+        <div class="reveal">
+          <div class="kicker" data-en="What we do" data-es="Qué hacemos">What we do</div>
+          <h2 data-en="From the farm gate to your business." data-es="De la finca a tu negocio.">From the farm gate to your business.</h2>
+        </div>
+        <p class="reveal"><span data-en="Three things, done with rigor: we source exceptional coffee — " data-es="Tres cosas, hechas con rigor: obtenemos café excepcional — ">Three things, done with rigor: we source exceptional coffee — </span><span class="hl" data-en="green or roasted" data-es="verde o tostado">green or roasted</span><span data-en=" — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business." data-es=" — comprobamos su calidad, y lo movemos a través de fronteras, para que recibas lotes trazables y de nivel especial listos para tu negocio."> — prove its quality, and move it across borders, so you receive traceable, specialty-grade lots ready for your business.</span></p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <img class="service-photo" src="/assets/service-sourcing-800.webp" loading="lazy" decoding="async" alt="Hands holding freshly harvested coffee cherries" />
+          <div class="service-body">
+            <h3 data-en="Direct sourcing" data-es="Abastecimiento directo">Direct sourcing</h3>
+            <p><span data-en="We know our growers first-hand. We walk their farms and trace every lot end to end — from the " data-es="Conocemos a nuestros caficultores de primera mano. Recorremos sus fincas y trazamos cada lote de principio a fin — desde el ">We know our growers first-hand. We walk their farms and trace every lot end to end — from the </span><span class="service-hl" data-en="exact origin" data-es="origen exacto">exact origin</span><span data-en=" to the process behind the cup." data-es=" hasta el proceso detrás de la taza."> to the process behind the cup.</span></p>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <img class="service-photo" src="/assets/service-quality-800.webp" loading="lazy" decoding="async" alt="Coffee cupping session with sensory flavor wheel" />
+          <div class="service-body">
+            <h3 data-en="Quality selection" data-es="Selección de calidad">Quality selection</h3>
+            <p><span data-en="Every lot is graded on what matters — " data-es="Cada lote se evalúa en lo que realmente importa — ">Every lot is graded on what matters — </span><span class="service-hl" data-en="sensory profile, yield, process and moisture" data-es="perfil sensorial, rendimiento, proceso y humedad">sensory profile, yield, process and moisture</span><span data-en=" — evaluated by an SCA-certified cupper before it ships." data-es=" — evaluado por un catador certificado por la SCA antes de despacharse."> — evaluated by an SCA-certified cupper before it ships.</span></p>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <img class="service-photo" src="/assets/service-export-800.webp" loading="lazy" decoding="async" alt="Air cargo being loaded for international export" />
+          <div class="service-body">
+            <h3 data-en="Export &amp; logistics" data-es="Exportación y logística">Export &amp; logistics</h3>
+            <p><span data-en="We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as " data-es="Entregamos a cafeterías, tostadores y compradores en Latinoamérica, Europa y Estados Unidos. Trabajando con una de las redes de carga más grandes y eficientes del mundo, a EE. UU. tu café puede llegar en tan solo ">We deliver to cafés, roasters and buyers across the U.S. With one of the world's largest, most efficient freight networks, your coffee can arrive in as little as </span><span class="service-hl" data-en="4 days" data-es="4 días">4 days</span><span data-en="." data-es=".">.</span></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
