@@ -73,6 +73,7 @@ REPLACEMENTS = [
     ),
     ("https://wa.me/573166541111?text=Hi%21%20I%20run%20a%20coffee%20shop%20and%20would%20like%20to%20request%20samples%20of%20your%20coffees.",
      "https://wa.me/573166541111?text=%C2%A1Hola%21%20Tengo%20una%20cafeter%C3%ADa%20y%20quiero%20pedir%20muestras%20de%20sus%20caf%C3%A9s."),
+    ('href="/blog"', 'href="/es/blog"'),
     ("const PAGE_LANG = 'en';", "const PAGE_LANG = 'es';"),
     ('class="lang-btn active" data-lang="en"', 'class="lang-btn" data-lang="en"'),
     ('class="lang-btn" data-lang="es"', 'class="lang-btn active" data-lang="es"'),
