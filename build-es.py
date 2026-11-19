@@ -65,6 +65,12 @@ REPLACEMENTS = [
         '<meta property="og:image:alt" content="Colombian coffee farmer holding freshly picked coffee cherries" />',
         '<meta property="og:image:alt" content="Caficultor colombiano sosteniendo cerezas de café recién recolectadas" />',
     ),
+    (
+        "https://wa.me/573166541111?text=Hi%21%20I%20found%20Pegasus%20Global%20Trade%20through%20your%20website"
+        "%20and%20would%20like%20to%20learn%20about%20your%20coffee%20lots.",
+        "https://wa.me/573166541111?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20de%20Pegasus%20Global%20Trade."
+        "%20Tengo%20una%20cafeter%C3%ADa%20y%20quiero%20conocer%20sus%20lotes.",
+    ),
     ("const PAGE_LANG = 'en';", "const PAGE_LANG = 'es';"),
     ('class="lang-btn active" data-lang="en"', 'class="lang-btn" data-lang="en"'),
     ('class="lang-btn" data-lang="es"', 'class="lang-btn active" data-lang="es"'),
