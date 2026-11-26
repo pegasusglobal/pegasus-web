@@ -4,8 +4,8 @@
   const io = (cb, opts) => new IntersectionObserver(cb, opts);
 
   /* ---- Banner: pause off-screen, honour reduced motion, manual pause button ---- */
-  const hero = document.querySelector('.fx-hero');
-  const svg = hero && hero.querySelector('svg');
+  const hero = document.querySelector('.fx-map-hero');
+  const svg = hero && hero.querySelector('svg.fx-map-overlay');
   const btn = hero && hero.querySelector('.fx-motion');
   if (hero && svg) {
     let userPaused = reduce;
@@ -19,7 +19,7 @@
         btn.setAttribute('aria-pressed', String(userPaused));
       }
     };
-    if (reduce) svg.setCurrentTime(6.5); // plane mid-route, route half drawn
+    if (reduce) svg.setCurrentTime(5); // plane mid-route, trail half drawn
     btn && btn.addEventListener('click', () => { userPaused = !userPaused; apply(); });
     io(([e]) => { visible = e.isIntersecting; apply(); }).observe(hero);
     apply();
@@ -27,7 +27,7 @@
 
   /* ---- Floating WhatsApp: hide over the header (covers the title on small phones) and the closing pass ---- */
   const float = document.querySelector('.wa-float');
-  const guards = [document.querySelector('.fx-head'), document.querySelector('.fx-pass-cta')].filter(Boolean);
+  const guards = [document.querySelector('.fx-hero'), document.querySelector('.fx-pass-cta')].filter(Boolean);
   if (float && guards.length) {
     const seen = new Set();
     const g = io((entries) => {

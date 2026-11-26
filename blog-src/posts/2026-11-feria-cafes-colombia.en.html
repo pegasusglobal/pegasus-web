@@ -21,7 +21,7 @@
 <div class="fx-progress" aria-hidden="true"><span class="fx-progress-fill"></span></div>
 <div class="fx-journey">
   <div class="fx-rail" role="navigation" aria-label="Post journey">
-    <div class="fx-rail-track" aria-hidden="true"><span class="fx-rail-fill"></span><svg class="fx-rail-plane" viewBox="-32 -22 64 44"><path d="M-24 0 L-14 -3 L-4 -3 L6 -20 L13 -20 L8 -3 L22 -3 C28 -3 30 0 30 0 C30 0 28 3 22 3 L8 3 L13 20 L6 20 L-4 3 L-14 3 Z"/></svg></div>
+    <div class="fx-rail-track" aria-hidden="true"><span class="fx-rail-fill"></span><svg class="fx-rail-plane" viewBox="-32 -22 64 44"><path d="M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z"/></svg></div>
     <ol>
       <li><a href="#arrival" data-stop="arrival"><span>01</span>Arrival</a></li>
       <li><a href="#cupping" data-stop="cupping"><span>02</span>Cupping</a></li>
@@ -38,7 +38,6 @@
       </div>
       <figure class="fx-photo fx-photo-hero fx-reveal">
         <img src="/assets/blog/feria-cafes-colombia-2026/arco-720.webp" srcset="/assets/blog/feria-cafes-colombia-2026/arco-720.webp 720w, /assets/blog/feria-cafes-colombia-2026/arco-1200.webp 1200w" sizes="(max-width: 980px) 90vw, 420px" width="720" height="960" loading="lazy" decoding="async" alt="Mateo Soler and Oscar A. Sánchez in front of the “Soy el sabor del café colombiano” arch at Cafés de Colombia 2026" />
-        <figcaption>Mateo and Oscar at the fair’s arch.</figcaption>
       </figure>
     </section>
 
@@ -70,8 +69,6 @@
       <div class="fx-cups fx-reveal">
         <div class="fx-cups-stats">
           <div><strong><span class="fx-count" data-to="40">40</span></strong><span>samples a day, at most</span></div>
-          <div><strong>4</strong><span>days at the fair</span></div>
-          <div><strong>+120</strong><span>samples in total</span></div>
         </div>
         <div class="fx-cups-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
@@ -83,11 +80,17 @@
           <button type="button" aria-expanded="false" aria-controls="note-raisins">Raisins</button>
           <button type="button" aria-expanded="false" aria-controls="note-oak">Oak</button>
           <button type="button" aria-expanded="false" aria-controls="note-liqueur">Liqueur</button>
+          <button type="button" aria-expanded="false" aria-controls="note-spices">Spices</button>
+          <button type="button" aria-expanded="false" aria-controls="note-fruity">Fruity</button>
+          <button type="button" aria-expanded="false" aria-controls="note-floral">Floral</button>
         </div>
         <p id="note-chocolate" class="fx-note-panel">Deep sweetness and a round body. A profile that works beautifully in espresso and milk drinks.</p>
         <p id="note-raisins" class="fx-note-panel" hidden>Ripe, concentrated fruit, common in natural-process coffees or controlled fermentations.</p>
         <p id="note-oak" class="fx-note-panel" hidden>Wood and spice notes that show up in more elaborate processes, such as long fermentations.</p>
         <p id="note-liqueur" class="fx-note-panel" hidden>A winey, almost boozy sensation typical of extended fermentations. It shines in filter methods.</p>
+        <p id="note-spices" class="fx-note-panel" hidden>Cinnamon, clove or pepper: warm notes that add complexity to the cup, especially in medium roasts.</p>
+        <p id="note-fruity" class="fx-note-panel" hidden>Red berries, citrus or tropical fruit: they bring brightness and a juicy acidity.</p>
+        <p id="note-floral" class="fx-note-panel" hidden>Jasmine, orange blossom or coffee flower: delicate aromas typical of high-altitude coffees like Gesha.</p>
       </div>
 
       <figure class="fx-photo fx-wide fx-reveal">
@@ -99,7 +102,7 @@
     <section id="people" class="fx-stop" data-stop="people">
       <span class="fx-stop-tag">Stop 03 · People</span>
       <h2>The people we met</h2>
-      <p>We met people from all over the country, but we want to highlight the growers from Antioquia, Caldas and Risaralda. We built a closer relationship with them, because of the quality of their coffee and because we saw a real opportunity to work together.</p>
+      <p>We met people from all over the country, but we want to highlight the growers from Antioquia, Caldas and Risaralda. We built a closer relationship with them, because of the quality of their coffee and because we saw a real opportunity to work together. We also want to highlight <strong>Huila</strong>, which is drawing attention for its excellent co-fermented and infused coffees.</p>
 
       <div class="fx-pair">
         <figure class="fx-photo fx-reveal">
@@ -122,12 +125,14 @@
             <button type="button" data-region="caldas" aria-pressed="false" aria-controls="region-caldas">Caldas</button>
             <button type="button" data-region="risaralda" aria-pressed="false" aria-controls="region-risaralda">Risaralda</button>
             <button type="button" data-region="bogota" aria-pressed="false" aria-controls="region-bogota">Bogotá</button>
+            <button type="button" data-region="huila" aria-pressed="false" aria-controls="region-huila">Huila</button>
           </div>
           <p id="region-nds" class="fx-map-panel"><strong>Our origin.</strong> We put it to the test against the rest of the country, and its coffees were among the best we cupped.</p>
           <p id="region-antioquia" class="fx-map-panel" hidden><strong>Antioquia.</strong> Growers we built a closer relationship with because of the quality of their coffee.</p>
           <p id="region-caldas" class="fx-map-panel" hidden><strong>Caldas.</strong> Producers from the Coffee Axis where we saw a real opportunity to work together.</p>
           <p id="region-risaralda" class="fx-map-panel" hidden><strong>Risaralda.</strong> Also in the Coffee Axis: high-quality coffees and conversations we want to continue.</p>
           <p id="region-bogota" class="fx-map-panel" hidden><strong>Bogotá.</strong> Home of Cafés de Colombia 2026, at Corferias: four days of cupping and conversations.</p>
+          <p id="region-huila" class="fx-map-panel" hidden><strong>Huila.</strong> Drawing attention for its excellent co-fermented and infused coffees.</p>
         </div>
       </div>
     </section>
@@ -160,7 +165,7 @@
           <div class="fx-pass-top"><span>Next destination</span><span>Pegasus Global Trade</span></div>
           <div class="fx-pass-route">
             <div class="fx-pass-city"><span class="code">NDS</span><span class="city">Norte de Santander</span></div>
-            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M-24 0 L-14 -3 L-4 -3 L6 -20 L13 -20 L8 -3 L22 -3 C28 -3 30 0 30 0 C30 0 28 3 22 3 L8 3 L13 20 L6 20 L-4 3 L-14 3 Z"/></svg><span></span></div>
+            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z"/></svg><span></span></div>
             <div class="fx-pass-city"><span class="code">☕</span><span class="city">Your coffee shop</span></div>
           </div>
           <p class="fx-pass-note">Ask us for our current portfolio and we will tell you which farm each lot comes from.</p>

@@ -21,7 +21,7 @@
 <div class="fx-progress" aria-hidden="true"><span class="fx-progress-fill"></span></div>
 <div class="fx-journey">
   <div class="fx-rail" role="navigation" aria-label="Recorrido de la entrada">
-    <div class="fx-rail-track" aria-hidden="true"><span class="fx-rail-fill"></span><svg class="fx-rail-plane" viewBox="-32 -22 64 44"><path d="M-24 0 L-14 -3 L-4 -3 L6 -20 L13 -20 L8 -3 L22 -3 C28 -3 30 0 30 0 C30 0 28 3 22 3 L8 3 L13 20 L6 20 L-4 3 L-14 3 Z"/></svg></div>
+    <div class="fx-rail-track" aria-hidden="true"><span class="fx-rail-fill"></span><svg class="fx-rail-plane" viewBox="-32 -22 64 44"><path d="M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z"/></svg></div>
     <ol>
       <li><a href="#llegada" data-stop="llegada"><span>01</span>Llegada</a></li>
       <li><a href="#catas" data-stop="catas"><span>02</span>Catas</a></li>
@@ -38,7 +38,6 @@
       </div>
       <figure class="fx-photo fx-photo-hero fx-reveal">
         <img src="/assets/blog/feria-cafes-colombia-2026/arco-720.webp" srcset="/assets/blog/feria-cafes-colombia-2026/arco-720.webp 720w, /assets/blog/feria-cafes-colombia-2026/arco-1200.webp 1200w" sizes="(max-width: 980px) 90vw, 420px" width="720" height="960" loading="lazy" decoding="async" alt="Mateo Soler y Oscar A. Sánchez frente al arco «Soy el sabor del café colombiano» en Cafés de Colombia 2026" />
-        <figcaption>Mateo y Oscar en el arco de la feria.</figcaption>
       </figure>
     </section>
 
@@ -70,8 +69,6 @@
       <div class="fx-cups fx-reveal">
         <div class="fx-cups-stats">
           <div><strong><span class="fx-count" data-to="40">40</span></strong><span>muestras al día, como máximo</span></div>
-          <div><strong>4</strong><span>días de feria</span></div>
-          <div><strong>+120</strong><span>muestras en total</span></div>
         </div>
         <div class="fx-cups-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
@@ -83,11 +80,17 @@
           <button type="button" aria-expanded="false" aria-controls="nota-uvas">Uvas pasas</button>
           <button type="button" aria-expanded="false" aria-controls="nota-roble">Roble</button>
           <button type="button" aria-expanded="false" aria-controls="nota-licor">Licor</button>
+          <button type="button" aria-expanded="false" aria-controls="nota-especias">Especias</button>
+          <button type="button" aria-expanded="false" aria-controls="nota-frutales">Frutales</button>
+          <button type="button" aria-expanded="false" aria-controls="nota-florales">Florales</button>
         </div>
         <p id="nota-chocolate" class="fx-note-panel">Dulzor profundo y cuerpo redondo. Un perfil que funciona muy bien en espresso y en bebidas con leche.</p>
         <p id="nota-uvas" class="fx-note-panel" hidden>Fruta madura y concentrada, frecuente en cafés de proceso natural o con fermentaciones controladas.</p>
         <p id="nota-roble" class="fx-note-panel" hidden>Notas a madera y especias que aparecen en procesos más elaborados, como las fermentaciones largas.</p>
         <p id="nota-licor" class="fx-note-panel" hidden>Una sensación vinosa, casi de licor, típica de fermentaciones prolongadas. Se luce en métodos filtrados.</p>
+        <p id="nota-especias" class="fx-note-panel" hidden>Canela, clavo o pimienta: notas cálidas que le suman complejidad a la taza, sobre todo en tuestes medios.</p>
+        <p id="nota-frutales" class="fx-note-panel" hidden>Frutos rojos, cítricos o frutas tropicales: aportan brillo y una acidez jugosa.</p>
+        <p id="nota-florales" class="fx-note-panel" hidden>Jazmín, azahar o flor de café: aromas delicados, típicos de cafés de altura como el Gesha.</p>
       </div>
 
       <figure class="fx-photo fx-wide fx-reveal">
@@ -99,7 +102,7 @@
     <section id="personas" class="fx-stop" data-stop="personas">
       <span class="fx-stop-tag">Parada 03 · Personas</span>
       <h2>Las personas que conocimos</h2>
-      <p>Conocimos gente de todo el país, pero queremos resaltar a los caficultores de Antioquia, Caldas y Risaralda. Con ellos construimos una relación más cercana, por la calidad del café que manejan y porque vimos una oportunidad interesante de trabajar juntos.</p>
+      <p>Conocimos gente de todo el país, pero queremos resaltar a los caficultores de Antioquia, Caldas y Risaralda. Con ellos construimos una relación más cercana, por la calidad del café que manejan y porque vimos una oportunidad interesante de trabajar juntos. También queremos destacar al <strong>Huila</strong>, que está llamando la atención por sus cofermentados e infusionados de excelente calidad.</p>
 
       <div class="fx-pair">
         <figure class="fx-photo fx-reveal">
@@ -122,12 +125,14 @@
             <button type="button" data-region="caldas" aria-pressed="false" aria-controls="region-caldas">Caldas</button>
             <button type="button" data-region="risaralda" aria-pressed="false" aria-controls="region-risaralda">Risaralda</button>
             <button type="button" data-region="bogota" aria-pressed="false" aria-controls="region-bogota">Bogotá</button>
+            <button type="button" data-region="huila" aria-pressed="false" aria-controls="region-huila">Huila</button>
           </div>
           <p id="region-nds" class="fx-map-panel"><strong>Nuestro origen.</strong> Lo pusimos a prueba frente al resto del país y sus cafés estuvieron entre los mejores que catamos.</p>
           <p id="region-antioquia" class="fx-map-panel" hidden><strong>Antioquia.</strong> Caficultores con los que construimos una relación más cercana por la calidad de su café.</p>
           <p id="region-caldas" class="fx-map-panel" hidden><strong>Caldas.</strong> Productores del Eje Cafetero con los que vimos una oportunidad interesante de trabajar juntos.</p>
           <p id="region-risaralda" class="fx-map-panel" hidden><strong>Risaralda.</strong> También del Eje Cafetero: cafés de gran calidad y conversaciones que queremos continuar.</p>
           <p id="region-bogota" class="fx-map-panel" hidden><strong>Bogotá.</strong> Sede de Cafés de Colombia 2026, en Corferias: cuatro días de catas y conversaciones.</p>
+          <p id="region-huila" class="fx-map-panel" hidden><strong>Huila.</strong> Está llamando la atención por sus cofermentados e infusionados de excelente calidad.</p>
         </div>
       </div>
     </section>
@@ -160,7 +165,7 @@
           <div class="fx-pass-top"><span>Próximo destino</span><span>Pegasus Global Trade</span></div>
           <div class="fx-pass-route">
             <div class="fx-pass-city"><span class="code">NDS</span><span class="city">Norte de Santander</span></div>
-            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M-24 0 L-14 -3 L-4 -3 L6 -20 L13 -20 L8 -3 L22 -3 C28 -3 30 0 30 0 C30 0 28 3 22 3 L8 3 L13 20 L6 20 L-4 3 L-14 3 Z"/></svg><span></span></div>
+            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z"/></svg><span></span></div>
             <div class="fx-pass-city"><span class="code">☕</span><span class="city">Tu cafetería</span></div>
           </div>
           <p class="fx-pass-note">Pídenos el portafolio actual y te contamos de qué finca viene cada lote.</p>
