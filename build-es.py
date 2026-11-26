@@ -39,8 +39,7 @@ REPLACEMENTS = [
     (
         "Direct-trade specialty coffee from Colombia's finest micro-regions. "
         "Sourced with integrity, exported with care to the United States.",
-        "Café especial de comercio directo desde las mejores micro-regiones de Colombia. "
-        "Abastecido con integridad, exportado con cuidado hacia Latinoamérica, Europa y Estados Unidos.",
+        "Café de especialidad colombiano de comercio directo: micro-lotes de las mejores regiones de Colombia para cafeterías en Latinoamérica, Europa y Estados Unidos.",
     ),
     (
         '<link rel="canonical" href="https://www.pegasusglobaltrade.co/" />',
@@ -58,8 +57,7 @@ REPLACEMENTS = [
     (
         '<meta property="og:description" content="Single-origin micro-lots from Colombia\'s finest '
         'regions — sourced at the farm and exported with care to specialty buyers across the United States." />',
-        '<meta property="og:description" content="Micro-lotes de origen único de las mejores regiones '
-        'de Colombia — obtenidos en finca y exportados con cuidado a compradores especializados en Latinoamérica, Europa y Estados Unidos." />',
+        '<meta property="og:description" content="Micro-lotes de origen único, seleccionados en finca y exportados a cafeterías y tostadores de Latinoamérica, Europa y Estados Unidos." />',
     ),
     (
         '<meta property="og:image:alt" content="Colombian coffee farmer holding freshly picked coffee cherries" />',
@@ -73,6 +71,12 @@ REPLACEMENTS = [
     ),
     ("https://wa.me/573166541111?text=Hi%21%20I%20run%20a%20coffee%20shop%20and%20would%20like%20to%20request%20samples%20of%20your%20coffees.",
      "https://wa.me/573166541111?text=%C2%A1Hola%21%20Tengo%20una%20cafeter%C3%ADa%20y%20quiero%20pedir%20muestras%20de%20sus%20caf%C3%A9s."),
+    ('<meta name="twitter:title" content="Colombian Specialty Coffee, Exported Direct" />',
+     '<meta name="twitter:title" content="Café Especial Colombiano, Exportado Directo" />'),
+    ('<meta name="twitter:description" content="Single-origin micro-lots from Colombia\'s finest regions — sourced at the farm and exported with care to specialty buyers across the United States." />',
+     '<meta name="twitter:description" content="Micro-lotes de origen único, seleccionados en finca y exportados a cafeterías y tostadores de Latinoamérica, Europa y Estados Unidos." />'),
+    ('<meta name="twitter:image:alt" content="Colombian coffee farmer holding freshly picked coffee cherries" />',
+     '<meta name="twitter:image:alt" content="Caficultor colombiano sosteniendo cerezas de café recién recolectadas" />'),
     ('href="/blog"', 'href="/es/blog"'),
     ("const PAGE_LANG = 'en';", "const PAGE_LANG = 'es';"),
     ('class="lang-btn active" data-lang="en"', 'class="lang-btn" data-lang="en"'),

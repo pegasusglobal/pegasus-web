@@ -1,0 +1,40 @@
+    <script>document.documentElement.classList.add("fx-js")</script>
+    <section class="fx-hero">
+      <div class="fx-hero-copy">
+        <div class="breadcrumbs"><a href="/">Home</a> / <a href="/blog">Blog</a></div>
+        <span class="kicker">{{category}}</span>
+        <h1>{{title}}</h1>
+        <p class="fx-lead">{{description}}</p>
+      </div>
+      <div class="fx-map-hero">
+        <img class="fx-map-base" src="/assets/blog/feria-cafes-colombia-2026/relief-800.webp" srcset="/assets/blog/feria-cafes-colombia-2026/relief-800.webp 800w, /assets/blog/feria-cafes-colombia-2026/relief-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 520px" width="800" height="1000" alt="Animated map: a plane flies from Cúcuta to Bogotá over the Eastern Andes" fetchpriority="high" />
+        {{include blog-src/features/feria-cafes-colombia-2026/hero-map.svg}}
+        <button class="fx-motion" type="button" data-pause="Pause animation" data-play="Play animation" aria-pressed="false">Pause animation</button>
+      </div>
+    </section>
+    <header class="fx-head">
+      <div class="fx-pass fx-reveal" role="group" aria-label="Trip boarding pass">
+        <div class="fx-pass-main">
+          <div class="fx-pass-top"><span>Boarding pass</span><span>Pegasus Global Trade</span></div>
+          <div class="fx-pass-route">
+            <div class="fx-pass-city"><span class="code">CUC</span><span class="city">Cúcuta</span></div>
+            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z"/></svg><span></span></div>
+            <div class="fx-pass-city"><span class="code">BOG</span><span class="city">Bogotá</span></div>
+          </div>
+          <dl class="fx-pass-grid">
+            <div><dt>Departure</dt><dd>Oct 15, 2026</dd></div>
+            <div><dt>Destination</dt><dd>Cafés de Colombia 2026</dd></div>
+            <div><dt>Venue</dt><dd>Corferias, Bogotá</dd></div>
+            <div><dt>Passengers</dt><dd>Mateo Soler · Oscar A. Sánchez</dd></div>
+          </dl>
+        </div>
+        <div class="fx-pass-stub">
+          <dl>
+            <div><dt>Written by</dt><dd>{{author}}</dd></div>
+            <div><dt>Published</dt><dd>{{date}}</dd></div>
+            <div><dt>Reading</dt><dd>{{minutes}} min</dd></div>
+          </dl>
+          <div class="fx-barcode" aria-hidden="true"></div>
+        </div>
+      </div>
+    </header>

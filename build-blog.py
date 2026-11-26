@@ -24,8 +24,21 @@ A file starts with a JSON block inside an HTML comment, followed by the body HTM
     -->
     <p>Body HTML: p, h2, h3, ul/ol, blockquote, figure/img/figcaption...</p>
 
-Drafts are built and listed so they can be previewed, but carry noindex and stay out
-of the sitemap. Run after adding or editing a post:
+Optional fields for a post that needs its own design:
+      "header": "blog-src/features/<x>/header.es.html"  replaces the default title block and cover
+      "css": ["/assets/blog/<x>/feature.css"], "js": ["/assets/blog/<x>/feature.js"]
+      "page_class": "feature-x"   class on <main>
+      "og_image": "/assets/blog/<x>/og.jpg"   link-preview image instead of one cropped from the cover
+      "cta": false   omit the standard WhatsApp box (when the body brings its own)
+      "seo_title": "..."   shorter <title> for search results when the headline is long (~60 chars)
+      "keywords": ["..."]   topics for article:tag and the BlogPosting keywords
+      "updated": "YYYY-MM-DD"   dateModified / sitemap lastmod after a real content change
+      "og_image_alt": "..."   alt text for the link-preview image (defaults to cover_alt)
+Header and body may use {{include path/from/repo}} and the tokens {{title}}, {{description}},
+{{author}}, {{date}}, {{minutes}}, {{category}}.
+
+Drafts are built so they can be previewed at their URL, but carry noindex, are not listed
+on the blog index and stay out of the sitemap. Run after adding or editing a post:
 
     python3 build-blog.py
 """
@@ -49,11 +62,11 @@ LANG = {
         "blog_path": "/blog",
         "home": "/",
         "locale": "en_US",
-        "blog_title": "Blog — Pegasus Global Trade",
+        "blog_title": "Colombian Specialty Coffee Blog | Pegasus Global Trade",
         "blog_h1": "Stories from origin",
         "blog_kicker": "Blog",
         "blog_intro": "Farm visits, harvests, events and what we learn along the way while sourcing Colombian specialty coffee.",
-        "blog_description": "Farm visits, harvests and events from Pegasus Global Trade, a Colombian specialty coffee exporter.",
+        "blog_description": "Farm visits, cuppings, harvests and coffee events from Pegasus Global Trade, a Colombian specialty coffee exporter for coffee shops and roasters.",
         "empty": "New stories are on their way.",
         "nav": [("Coffees", "/#coffees"), ("Services", "/#services"), ("About", "/#about"), ("Blog", "/blog")],
         "contact": ("Contact us", "/#contact"),
@@ -74,11 +87,11 @@ LANG = {
         "blog_path": "/es/blog",
         "home": "/es",
         "locale": "es_CO",
-        "blog_title": "Blog — Pegasus Global Trade",
+        "blog_title": "Blog de café de especialidad colombiano | Pegasus Global Trade",
         "blog_h1": "Historias desde el origen",
         "blog_kicker": "Blog",
         "blog_intro": "Visitas a fincas, cosechas, eventos y lo que aprendemos en el camino seleccionando café de especialidad colombiano.",
-        "blog_description": "Visitas a fincas, cosechas y eventos de Pegasus Global Trade, exportadora de café de especialidad colombiano.",
+        "blog_description": "Visitas a fincas, catas, cosechas y ferias de café de Pegasus Global Trade, exportadora de café de especialidad colombiano para cafeterías y tostadores.",
         "empty": "Pronto publicaremos nuevas historias.",
         "nav": [("Cafés", "/es#coffees"), ("Servicios", "/es#services"), ("Nosotros", "/es#about"), ("Blog", "/es/blog")],
         "contact": ("Contáctanos", "/es#contact"),
@@ -222,8 +235,10 @@ def og_image(post):
     return SITE + "/" + out.relative_to(ROOT).as_posix()
 
 
-def head(lang, title, description, url, alternates, og, robots, jsonld, og_type="website", extra=""):
+def head(lang, title, description, url, alternates, og, robots, jsonld, og_type="website", extra="", og_alt=None):
     t = LANG[lang]
+    other_locale = LANG["es" if lang == "en" else "en"]["locale"]
+    og_alt = og_alt or title
     alt = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{SITE}{u}" />' for l, u in alternates)
     if alternates:
         en_url = dict(alternates).get("en")
@@ -246,8 +261,15 @@ def head(lang, title, description, url, alternates, og, robots, jsonld, og_type=
   <meta property="og:url" content="{SITE}{url}" />
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(description)}" />
+  <meta property="og:locale:alternate" content="{other_locale}" />
   <meta property="og:image" content="{og}" />
-  <meta name="twitter:card" content="summary_large_image" />{extra}
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{esc(og_alt)}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{esc(title)}" />
+  <meta name="twitter:description" content="{esc(description)}" />
+  <meta name="twitter:image" content="{og}" />{extra}
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -289,14 +311,15 @@ def chrome_top(lang, other_url):
 """
 
 
-def chrome_bottom(lang):
+def chrome_bottom(lang, scripts=()):
     t = LANG[lang]
+    extra_js = "".join(f'\n  <script src="{src}" defer></script>' for src in scripts)
     return f"""  <footer>
     <div class="footer-brand"><img src="/assets/logo-horizontal-480.webp" alt="Pegasus Global Trade" class="ic" loading="lazy" decoding="async" /><span>Cúcuta, Colombia</span></div>
     <div class="footer-copy">{t['copy']}</div>
   </footer>
   <a href="{esc(wa_link(t['float_msg']))}" class="wa-float" data-cta="floating" target="_blank" rel="noopener">{WA_ICON}<span>{t['float']}</span></a>
-{SCRIPTS}
+{SCRIPTS}{extra_js}
 </body>
 </html>
 """
@@ -307,28 +330,73 @@ def publisher():
             "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/logo-horizontal-480.webp"}}
 
 
+def body_images(p):
+    """Large in-article images (absolute URLs) for structured data and the image sitemap."""
+    found = []
+    for src in re.findall(r'(/assets/[^"\s,]+?\.(?:webp|jpe?g|png))', p["body"]):
+        big = re.sub(r"-720\.(webp|jpe?g|png)$", r"-1200.\1", src)
+        if (ROOT / big.lstrip("/")).is_file():
+            src = big
+        if src not in found and (ROOT / src.lstrip("/")).is_file():
+            found.append(src)
+    return [SITE + s for s in found]
+
+
+def word_count(p):
+    return len(re.sub(r"<[^>]+>", " ", p["body"]).split())
+
+
+def expand(text, p):
+    """Resolve {{include path}} and the post tokens inside a header or body fragment."""
+    def include(m):
+        path = ROOT / m.group(1).strip()
+        if not path.is_file():
+            sys.exit(f"build-blog.py: include not found: {m.group(1).strip()}")
+        return path.read_text(encoding="utf-8")
+    text = re.sub(r"\{\{include ([^}]+)\}\}", include, text)
+    tokens = {"title": esc(p["title"]), "description": esc(p["description"]), "author": esc(p["author"]),
+              "date": format_date(p["date"], p["lang"]), "minutes": str(reading_minutes(p["body"])),
+              "category": esc(p["category"])}
+    return re.sub(r"\{\{(title|description|author|date|minutes|category)\}\}", lambda m: tokens[m.group(1)], text)
+
+
 def render_post(p):
     t = LANG[p["lang"]]
-    og = og_image(p)
+    og = SITE + p["og_image"] if p.get("og_image") else og_image(p)
     alternates = [(p["lang"], p["url"])] + ([(p["pair"]["lang"], p["pair"]["url"])] if p["pair"] else [])
     other = p["pair"]["url"] if p["pair"] else LANG["es" if p["lang"] == "en" else "en"]["blog_path"]
     jsonld = [
         {"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"],
-         "description": p["description"], "image": [og], "datePublished": p["date"],
+         "description": p["description"], "image": [og] + body_images(p), "datePublished": p["date"],
          "dateModified": p.get("updated", p["date"]), "inLanguage": p["lang"],
-         "author": {"@type": "Person", "name": p["author"]}, "publisher": publisher(),
-         "mainEntityOfPage": f"{SITE}{p['url']}"},
+         "articleSection": p["category"], "wordCount": word_count(p),
+         **({"keywords": ", ".join(p["keywords"])} if p.get("keywords") else {}),
+         "author": {"@type": "Person", "name": p["author"], "worksFor": publisher()}, "publisher": publisher(),
+         "mainEntityOfPage": {"@type": "WebPage", "@id": f"{SITE}{p['url']}"}},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": t["home_crumb"], "item": f"{SITE}{t['home']}"},
             {"@type": "ListItem", "position": 2, "name": "Blog", "item": f"{SITE}{t['blog_path']}"},
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": f"{SITE}{p['url']}"}]},
     ]
-    extra = f'\n  <meta property="article:published_time" content="{p["date"]}" />'
-    page = head(p["lang"], f"{p['title']} | Pegasus Global Trade", p["description"], p["url"], alternates, og,
-                "noindex, follow" if p["draft"] else "index, follow", jsonld, "article", extra)
+    extra = (f'\n  <meta property="article:published_time" content="{p["date"]}" />'
+             f'\n  <meta property="article:modified_time" content="{p.get("updated", p["date"])}" />'
+             f'\n  <meta property="article:author" content="{esc(p["author"])}" />'
+             f'\n  <meta property="article:section" content="{esc(p["category"])}" />'
+             + "".join(f'\n  <meta property="article:tag" content="{esc(k)}" />' for k in p.get("keywords", [])))
+    page = head(p["lang"], p.get("seo_title") or f"{p['title']} | Pegasus Global Trade", p["description"], p["url"], alternates, og,
+                "noindex, follow" if p["draft"] else "index, follow", jsonld, "article", extra,
+                p.get("og_image_alt") or p.get("cover_alt"))
+    # post stylesheets load after blog.css so they win ties
+    blog_css = '<link rel="stylesheet" href="/assets/blog.css" />'
+    page = page.replace(blog_css, blog_css + "".join(f'\n  <link rel="stylesheet" href="{href}" />' for href in p.get("css", [])))
     page += chrome_top(p["lang"], other)
-    page += f"""  <main>
-    <header class="article-head"><div class="inner">
+    if p.get("header"):
+        header_path = ROOT / p["header"]
+        if not header_path.is_file():
+            sys.exit(f"build-blog.py: header not found: {p['header']}")
+        header = expand(header_path.read_text(encoding="utf-8"), p)
+    else:
+        header = f"""    <header class="article-head"><div class="inner">
       <div class="breadcrumbs"><a href="{t['home']}">{t['home_crumb']}</a> / <a href="{t['blog_path']}">Blog</a></div>
       <span class="kicker">{esc(p['category'])}</span>
       <h1>{esc(p['title'])}</h1>
@@ -336,18 +404,22 @@ def render_post(p):
       <div class="article-meta"><span>{esc(p['author'])}</span><span>{format_date(p['date'], p['lang'])}</span><span>{reading_minutes(p['body'])} {t['min_read']}</span></div>
     </div></header>
     <div class="article-cover"><img src="{p['cover']}" alt="{esc(p['cover_alt'])}" fetchpriority="high" /></div>
-    <article class="article-body">
-{p['body']}
-    </article>
-    <aside class="article-cta"><div class="box">
+"""
+    cta = "" if p.get("cta") is False else f"""    <aside class="article-cta"><div class="box">
       <h2>{t['cta_h']}</h2>
       <p>{t['cta_p']}</p>
       <a href="{esc(wa_link(t['cta_msg']))}" class="btn-wa" data-cta="blog" target="_blank" rel="noopener">{WA_ICON}<span>{t['cta_btn']}</span></a>
     </div></aside>
-    <div class="article-foot"><a href="{t['blog_path']}">{t['back']}</a></div>
+"""
+    main_class = f' class="{esc(p["page_class"])}"' if p.get("page_class") else ""
+    page += f"""  <main{main_class}>
+{header}    <article class="article-body">
+{expand(p['body'], p)}
+    </article>
+{cta}    <div class="article-foot"><a href="{t['blog_path']}">{t['back']}</a></div>
   </main>
 """
-    return page + chrome_bottom(p["lang"])
+    return page + chrome_bottom(p["lang"], p.get("js", []))
 
 
 def render_index(lang, posts):
@@ -373,8 +445,8 @@ def render_index(lang, posts):
           <p>{esc(p['description'])}</p>
           <span class="meta">{format_date(p['date'], lang)} · {reading_minutes(p['body'])} {t['min_read']}</span>
         </div>
-      </a>""" for p in listed)
-    body = f'<div class="post-grid">{cards}\n    </div>' if listed else f'<p class="empty">{t["empty"]}</p>'
+      </a>""" for p in published)
+    body = f'<div class="post-grid">{cards}\n    </div>' if published else f'<p class="empty">{t["empty"]}</p>'
     page += f"""  <main>
     <header class="blog-head"><div class="wrap">
       <span class="kicker">{t['blog_kicker']}</span>
@@ -409,24 +481,31 @@ def remove_stale(posts):
 
 
 def write_sitemap(posts):
-    def entry(loc, alts, lastmod=None):
+    def entry(loc, alts, lastmod=None, images=()):
+        alts = list(alts)
+        en = dict(alts).get("en")
+        if en and len(alts) > 1:
+            alts.append(("x-default", en))
         links = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{u}" />' for l, u in alts)
         mod = f"\n    <lastmod>{lastmod}</lastmod>" if lastmod else ""
-        return f"  <url>\n    <loc>{SITE}{loc}</loc>{mod}{links}\n  </url>"
+        imgs = "".join(f"\n    <image:image><image:loc>{html.escape(i)}</image:loc></image:image>" for i in images)
+        return f"  <url>\n    <loc>{SITE}{loc}</loc>{mod}{links}{imgs}\n  </url>"
     home_alts = [("en", "/"), ("es", "/es")]
     entries = [entry("/", home_alts), entry("/es", home_alts)]
     published = [p for p in posts if not p["draft"]]
     for lang in ("en", "es"):
         if any(p["lang"] == lang for p in published):
-            entries.append(entry(LANG[lang]["blog_path"], [("en", "/blog"), ("es", "/es/blog")]))
+            newest = max(p.get("updated", p["date"]) for p in published if p["lang"] == lang)
+            entries.append(entry(LANG[lang]["blog_path"], [("en", "/blog"), ("es", "/es/blog")], newest))
     for p in published:
         alts = [(p["lang"], p["url"])]
         if p["pair"] and not p["pair"]["draft"]:
             alts.append((p["pair"]["lang"], p["pair"]["url"]))
-        entries.append(entry(p["url"], alts, p.get("updated", p["date"])))
+        entries.append(entry(p["url"], alts, p.get("updated", p["date"]), body_images(p)))
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" '
+        'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
         + "\n".join(entries) + "\n</urlset>\n", encoding="utf-8")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     return len(entries)

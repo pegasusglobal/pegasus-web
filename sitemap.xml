@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.pegasusglobaltrade.co/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/" />
   </url>
   <url>
     <loc>https://www.pegasusglobaltrade.co/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/blog</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/blog" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/es/blog</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/blog" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/arco-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/avion-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/credencial-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/stand-cata-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/selfie-pabellon-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/stand-muestras-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/gesha-norte-santander-1200.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/arco-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/avion-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/credencial-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/stand-cata-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/selfie-pabellon-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/stand-muestras-1200.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.pegasusglobaltrade.co/assets/blog/feria-cafes-colombia-2026/gesha-norte-santander-1200.webp</image:loc></image:image>
   </url>
 </urlset>
