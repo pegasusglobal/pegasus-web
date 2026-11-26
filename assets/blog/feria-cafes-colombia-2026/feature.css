@@ -22,10 +22,6 @@
 .fx-map-overlay .trail-ghost { fill: none; stroke: #D7261E; stroke-width: 4; stroke-dasharray: 2 11; stroke-linecap: round; opacity: .28; }
 .fx-map-overlay .trail { fill: none; stroke: #D7261E; stroke-width: 5.5; stroke-dasharray: 2 11; stroke-linecap: round; }
 .fx-map-overlay .pin-label text { font-family: var(--sans); }
-.fx-front .sway { transform-box: fill-box; transform-origin: 50% 100%; animation: fxSway 3.6s ease-in-out infinite alternate; }
-.fx-front g:nth-child(2n) .sway { animation-duration: 4.4s; animation-delay: -1.2s; }
-.fx-front g:nth-child(3n) .sway { animation-duration: 3.1s; animation-delay: -2s; }
-@keyframes fxSway { from { transform: rotate(-2.5deg); } to { transform: rotate(2.5deg); } }
 .fx-map-hero.is-paused * { animation-play-state: paused !important; }
 .fx-motion { position: absolute; left: 14px; top: 14px; z-index: 2; font: 600 12px var(--sans); letter-spacing: .04em; color: #fff; background: rgba(0,16,46,.78); border: 1px solid rgba(255,255,255,.35); border-radius: 30px; padding: 8px 14px; min-height: 44px; cursor: pointer; }
 .fx-motion:hover { background: rgba(0,16,46,.92); }
@@ -142,10 +138,6 @@
 .fx-map-panel strong { color: var(--navy); }
 
 /* ===== Quote ===== */
-.fx-page .article-body .fx-quote { border: 0; padding: 0; margin: 72px auto 8px; max-width: 760px; text-align: center; }
-.fx-quote p { font-family: var(--serif); font-style: italic; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.15; color: var(--navy); margin: 0; }
-.fx-quote p::before, .fx-quote p::after { color: var(--gold); }
-.fx-quote p::before { content: '“'; } .fx-quote p::after { content: '”'; }
 
 /* ===== Closing boarding pass ===== */
 .fx-pass-cta { margin: 36px 0 20px; }
@@ -196,7 +188,6 @@
   .fx-cups-stats strong { font-size: 56px; }
   .fx-map { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
   .fx-map-figure { max-width: 300px; margin: 0 auto; width: 100%; }
-  .fx-quote p { font-size: 34px; }
 }
 @media (max-width: 420px) {
   .fx-pass-route { gap: 10px; }
@@ -212,3 +203,4 @@
   .fx-js .fx-reveal { opacity: 1; translate: none; transition: none; }
   .fx-polaroid { transition: none; }
 }
+.fx-pass-city .code.globe svg { width: 1em; height: 1em; display: block; margin: 0 auto; color: var(--navy); }

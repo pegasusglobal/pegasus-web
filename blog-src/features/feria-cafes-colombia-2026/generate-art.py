@@ -5,7 +5,7 @@
 Needs Pillow and numpy. Reads geo.json (Colombia/Venezuela borders and rivers extracted from
 Natural Earth, public domain) and writes:
   - assets/blog/feria-cafes-colombia-2026/relief-800.webp / relief-1600.webp   shaded relief base map
-  - blog-src/features/feria-cafes-colombia-2026/hero-map.svg   overlay: route, plane, labels, coffee farms
+  - blog-src/features/feria-cafes-colombia-2026/hero-map.svg   overlay: route, plane, labels
   - blog-src/features/feria-cafes-colombia-2026/map.svg        small Colombia map for the regions widget
 """
 import json, math, pathlib, random
@@ -129,44 +129,8 @@ def pin(name, code, side):
 PLANE = ("M30 0 C30 -2 28 -3.2 24 -3.2 L12 -3.2 L-2 -22 L-8 -22 L2 -3.2 L-18 -3.2 L-25 -10 L-29 -10 L-25 -3 "
          "L-27 0 L-25 3 L-29 10 L-25 10 L-18 3.2 L2 3.2 L-8 22 L-2 22 L12 3.2 L24 3.2 C28 3.2 30 2 30 0Z")
 
-# coffee farm strip
-FY = 862
-def hill(px, py, half, depth, x): t = (x - px) / half; return py + min(1.0, t * t) * depth
-hills = [dict(px=170, py=FY, half=300, depth=150), dict(px=620, py=FY + 8, half=320, depth=150)]
-def strip_y(x): return min(hill(h["px"], h["py"], h["half"], h["depth"], x) for h in hills)
-strip_d = "M-10,1010 " + " ".join(f"L{x},{f(strip_y(x))}" for x in range(-10, 821, 20)) + " L810,1010 Z"
-bushes = []
-for h in hills:
-    for r in range(4):
-        x = h["px"] - h["half"] * 0.95; s = 0.42 + r * 0.1
-        while x < h["px"] + h["half"] * 0.95:
-            y = hill(h["px"], h["py"], h["half"], h["depth"], x) + 20 + r * 24
-            if y < 1000 and strip_y(x) + 12 < y:
-                bushes.append((x + random.uniform(-4, 4), y, s))
-            x += 30 * s
-bushes.sort(key=lambda b: b[1])
-front = [(30, 1012, 1.5), (175, 1016, 1.25), (640, 1016, 1.3), (785, 1012, 1.55)]
-def bush(x, y, s, sway=False):
-    if sway:
-        return f'<g transform="translate({f(x)} {f(y)}) scale({f(s)})"><use href="#bush" class="sway"/></g>'
-    return f'<use href="#bush" transform="translate({f(x)} {f(y)}) scale({f(s)})"/>'
-house = ('<g transform="translate(395 892)"><rect x="-34" y="-30" width="68" height="34" fill="#FBF6EC" stroke="#8C6A4A" stroke-width="2"/>'
-         '<path d="M-42 -28 L0 -56 L42 -28 Z" fill="#B5442B" stroke="#7C2E1D" stroke-width="2"/>'
-         '<rect x="-8" y="-16" width="16" height="20" fill="#7C4A2A"/><rect x="-26" y="-20" width="11" height="10" fill="#7FB6D9"/>'
-         '<rect x="15" y="-20" width="11" height="10" fill="#7FB6D9"/></g>')
-
 svg = f'''<svg class="fx-map-overlay" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="bush" overflow="visible">
-      <ellipse cx="0" cy="2" rx="24" ry="5" fill="#1D3A1E" opacity=".35"/>
-      <rect x="-2" y="-14" width="4" height="16" rx="2" fill="#5B3A22"/>
-      <circle cx="-15" cy="-22" r="15" fill="#2C6332"/><circle cx="15" cy="-22" r="15" fill="#2C6332"/>
-      <circle cx="0" cy="-34" r="18" fill="#357A3B"/><circle cx="-9" cy="-46" r="12" fill="#3F8A44"/><circle cx="10" cy="-45" r="11" fill="#3F8A44"/>
-      <circle cx="-14" cy="-26" r="3.4" fill="#C8302A"/><circle cx="-6" cy="-19" r="3" fill="#E04B3A"/><circle cx="7" cy="-28" r="3.4" fill="#C8302A"/>
-      <circle cx="16" cy="-19" r="3" fill="#E04B3A"/><circle cx="2" cy="-41" r="3" fill="#C8302A"/><circle cx="-4" cy="-31" r="2.6" fill="#F0B13B"/>
-    </symbol>
-    <linearGradient id="fxFarmSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#F6EFD9" stop-opacity=".85"/><stop offset="1" stop-color="#F6EFD9"/></linearGradient>
-    <linearGradient id="fxFarmHill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E9650"/><stop offset="1" stop-color="#2F5A2E"/></linearGradient>
     <path id="fxRoute" d="{route}"/>
     <mask id="fxTrail" maskUnits="userSpaceOnUse">
       <use href="#fxRoute" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
@@ -194,13 +158,6 @@ svg = f'''<svg class="fx-map-overlay" viewBox="0 0 {W} {H}" preserveAspectRatio=
   </g>
   {pin("Cúcuta", "CUC", "right")}
   {pin("Bogotá", "BOG", "right")}
-  <g class="farms">
-    <rect x="0" y="{FY - 120}" width="{W}" height="{H - FY + 120}" fill="url(#fxFarmSky)"/>
-    <path d="{strip_d}" fill="url(#fxFarmHill)"/>
-    {"".join(bush(x, y, s) for x, y, s in bushes)}
-    {house}
-    <g class="fx-front">{"".join(bush(x, y, s, True) for x, y, s in front)}</g>
-  </g>
 </svg>'''
 (HERE / "hero-map.svg").write_text(svg, encoding="utf-8")
 
@@ -224,4 +181,4 @@ dots = "".join(f'<g class="map-dot" data-region="{k}" transform="translate({f(x)
   {dots}
 </svg>''', encoding="utf-8")
 print("relief:", (ASSETS / "relief-800.webp").stat().st_size // 1024, "KB /", (ASSETS / "relief-1600.webp").stat().st_size // 1024,
-      "KB | overlay:", len(svg) // 1024, "KB | bushes:", len(bushes))
+      "KB | overlay:", len(svg) // 1024)
