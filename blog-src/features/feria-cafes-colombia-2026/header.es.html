@@ -1,0 +1,37 @@
+    <script>document.documentElement.classList.add("fx-js")</script>
+    <section class="fx-hero" aria-label="Ilustración animada: un avión vuela de Cúcuta a Bogotá sobre montañas cafeteras">
+      <div class="fx-banner">{{include blog-src/features/feria-cafes-colombia-2026/banner.svg}}</div>
+      <button class="fx-motion" type="button" data-pause="Pausar animación" data-play="Reanudar animación" aria-pressed="false">Pausar animación</button>
+    </section>
+    <header class="fx-head">
+      <div class="fx-head-inner">
+        <div class="breadcrumbs"><a href="/es">Inicio</a> / <a href="/es/blog">Blog</a></div>
+        <span class="kicker">{{category}}</span>
+        <h1>{{title}}</h1>
+        <p class="fx-lead">{{description}}</p>
+      </div>
+      <div class="fx-pass fx-reveal" role="group" aria-label="Tarjeta de embarque del viaje">
+        <div class="fx-pass-main">
+          <div class="fx-pass-top"><span>Tarjeta de embarque</span><span>Pegasus Global Trade</span></div>
+          <div class="fx-pass-route">
+            <div class="fx-pass-city"><span class="code">CUC</span><span class="city">Cúcuta</span></div>
+            <div class="fx-pass-flight" aria-hidden="true"><span></span><svg viewBox="-32 -22 64 44"><path d="M-24 0 L-14 -3 L-4 -3 L6 -20 L13 -20 L8 -3 L22 -3 C28 -3 30 0 30 0 C30 0 28 3 22 3 L8 3 L13 20 L6 20 L-4 3 L-14 3 Z"/></svg><span></span></div>
+            <div class="fx-pass-city"><span class="code">BOG</span><span class="city">Bogotá</span></div>
+          </div>
+          <dl class="fx-pass-grid">
+            <div><dt>Salida</dt><dd>15 oct 2026</dd></div>
+            <div><dt>Destino</dt><dd>Cafés de Colombia 2026</dd></div>
+            <div><dt>Lugar</dt><dd>Corferias, Bogotá</dd></div>
+            <div><dt>Pasajeros</dt><dd>Mateo Soler · Oscar A. Sánchez</dd></div>
+          </dl>
+        </div>
+        <div class="fx-pass-stub">
+          <dl>
+            <div><dt>Escribe</dt><dd>{{author}}</dd></div>
+            <div><dt>Publicado</dt><dd>{{date}}</dd></div>
+            <div><dt>Lectura</dt><dd>{{minutes}} min</dd></div>
+          </dl>
+          <div class="fx-barcode" aria-hidden="true"></div>
+        </div>
+      </div>
+    </header>

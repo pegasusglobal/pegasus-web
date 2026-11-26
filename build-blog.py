@@ -24,6 +24,16 @@ A file starts with a JSON block inside an HTML comment, followed by the body HTM
     -->
     <p>Body HTML: p, h2, h3, ul/ol, blockquote, figure/img/figcaption...</p>
 
+Optional fields for a post that needs its own design:
+      "header": "blog-src/features/<x>/header.es.html"  replaces the default title block and cover
+      "css": ["/assets/blog/<x>/feature.css"], "js": ["/assets/blog/<x>/feature.js"]
+      "page_class": "feature-x"   class on <main>
+      "og_image": "/assets/blog/<x>/og.jpg"   link-preview image instead of one cropped from the cover
+      "cta": false   omit the standard WhatsApp box (when the body brings its own)
+      "seo_title": "..."   shorter <title> for search results when the headline is long (~60 chars)
+Header and body may use {{include path/from/repo}} and the tokens {{title}}, {{description}},
+{{author}}, {{date}}, {{minutes}}, {{category}}.
+
 Drafts are built and listed so they can be previewed, but carry noindex and stay out
 of the sitemap. Run after adding or editing a post:
 
@@ -289,14 +299,15 @@ def chrome_top(lang, other_url):
 """
 
 
-def chrome_bottom(lang):
+def chrome_bottom(lang, scripts=()):
     t = LANG[lang]
+    extra_js = "".join(f'\n  <script src="{src}" defer></script>' for src in scripts)
     return f"""  <footer>
     <div class="footer-brand"><img src="/assets/logo-horizontal-480.webp" alt="Pegasus Global Trade" class="ic" loading="lazy" decoding="async" /><span>Cúcuta, Colombia</span></div>
     <div class="footer-copy">{t['copy']}</div>
   </footer>
   <a href="{esc(wa_link(t['float_msg']))}" class="wa-float" data-cta="floating" target="_blank" rel="noopener">{WA_ICON}<span>{t['float']}</span></a>
-{SCRIPTS}
+{SCRIPTS}{extra_js}
 </body>
 </html>
 """
@@ -307,9 +318,23 @@ def publisher():
             "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/logo-horizontal-480.webp"}}
 
 
+def expand(text, p):
+    """Resolve {{include path}} and the post tokens inside a header or body fragment."""
+    def include(m):
+        path = ROOT / m.group(1).strip()
+        if not path.is_file():
+            sys.exit(f"build-blog.py: include not found: {m.group(1).strip()}")
+        return path.read_text(encoding="utf-8")
+    text = re.sub(r"\{\{include ([^}]+)\}\}", include, text)
+    tokens = {"title": esc(p["title"]), "description": esc(p["description"]), "author": esc(p["author"]),
+              "date": format_date(p["date"], p["lang"]), "minutes": str(reading_minutes(p["body"])),
+              "category": esc(p["category"])}
+    return re.sub(r"\{\{(title|description|author|date|minutes|category)\}\}", lambda m: tokens[m.group(1)], text)
+
+
 def render_post(p):
     t = LANG[p["lang"]]
-    og = og_image(p)
+    og = SITE + p["og_image"] if p.get("og_image") else og_image(p)
     alternates = [(p["lang"], p["url"])] + ([(p["pair"]["lang"], p["pair"]["url"])] if p["pair"] else [])
     other = p["pair"]["url"] if p["pair"] else LANG["es" if p["lang"] == "en" else "en"]["blog_path"]
     jsonld = [
@@ -324,11 +349,19 @@ def render_post(p):
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": f"{SITE}{p['url']}"}]},
     ]
     extra = f'\n  <meta property="article:published_time" content="{p["date"]}" />'
-    page = head(p["lang"], f"{p['title']} | Pegasus Global Trade", p["description"], p["url"], alternates, og,
+    page = head(p["lang"], p.get("seo_title") or f"{p['title']} | Pegasus Global Trade", p["description"], p["url"], alternates, og,
                 "noindex, follow" if p["draft"] else "index, follow", jsonld, "article", extra)
+    # post stylesheets load after blog.css so they win ties
+    blog_css = '<link rel="stylesheet" href="/assets/blog.css" />'
+    page = page.replace(blog_css, blog_css + "".join(f'\n  <link rel="stylesheet" href="{href}" />' for href in p.get("css", [])))
     page += chrome_top(p["lang"], other)
-    page += f"""  <main>
-    <header class="article-head"><div class="inner">
+    if p.get("header"):
+        header_path = ROOT / p["header"]
+        if not header_path.is_file():
+            sys.exit(f"build-blog.py: header not found: {p['header']}")
+        header = expand(header_path.read_text(encoding="utf-8"), p)
+    else:
+        header = f"""    <header class="article-head"><div class="inner">
       <div class="breadcrumbs"><a href="{t['home']}">{t['home_crumb']}</a> / <a href="{t['blog_path']}">Blog</a></div>
       <span class="kicker">{esc(p['category'])}</span>
       <h1>{esc(p['title'])}</h1>
@@ -336,18 +369,22 @@ def render_post(p):
       <div class="article-meta"><span>{esc(p['author'])}</span><span>{format_date(p['date'], p['lang'])}</span><span>{reading_minutes(p['body'])} {t['min_read']}</span></div>
     </div></header>
     <div class="article-cover"><img src="{p['cover']}" alt="{esc(p['cover_alt'])}" fetchpriority="high" /></div>
-    <article class="article-body">
-{p['body']}
-    </article>
-    <aside class="article-cta"><div class="box">
+"""
+    cta = "" if p.get("cta") is False else f"""    <aside class="article-cta"><div class="box">
       <h2>{t['cta_h']}</h2>
       <p>{t['cta_p']}</p>
       <a href="{esc(wa_link(t['cta_msg']))}" class="btn-wa" data-cta="blog" target="_blank" rel="noopener">{WA_ICON}<span>{t['cta_btn']}</span></a>
     </div></aside>
-    <div class="article-foot"><a href="{t['blog_path']}">{t['back']}</a></div>
+"""
+    main_class = f' class="{esc(p["page_class"])}"' if p.get("page_class") else ""
+    page += f"""  <main{main_class}>
+{header}    <article class="article-body">
+{expand(p['body'], p)}
+    </article>
+{cta}    <div class="article-foot"><a href="{t['blog_path']}">{t['back']}</a></div>
   </main>
 """
-    return page + chrome_bottom(p["lang"])
+    return page + chrome_bottom(p["lang"], p.get("js", []))
 
 
 def render_index(lang, posts):

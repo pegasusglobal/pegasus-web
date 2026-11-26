@@ -10,4 +10,26 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es" />
   </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/es/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota" />
+  </url>
+  <url>
+    <loc>https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.pegasusglobaltrade.co/es/blog/cafes-de-colombia-2026-feria-bogota" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pegasusglobaltrade.co/blog/cafes-de-colombia-2026-coffee-fair-bogota" />
+  </url>
 </urlset>
